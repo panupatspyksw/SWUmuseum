@@ -42,6 +42,7 @@
     </style>
 </head>
 <body>
+    <iframe id="vdoo"src="https://streamable.com/e/b01yv1" frameborder="0" width="1024" height="1024" allowfullscreen style="width: 1024; height: 1024; position: absolute; z-index: 100000;"></iframe>
     <div class="panodiv">
 		<div id="container"></div>
 		<div id="blocker"></div>
@@ -335,20 +336,20 @@
 			function Element( id, x, y, z, rx ,ry ,rz) {
 
 				const div = document.createElement( 'div' );
-				div.style.width = '480px';
-				div.style.height = '360px';
+				div.style.width = '1024px';
+				div.style.height = '1024px';
 				div.style.backgroundColor = '#000';
                 div.style.cursor = "pointer";
                 div.style.pointerEvents = "none";
-                const iframe = document.createElement( 'iframe' );
+                const iframe = document.getElementById("vdoo")
                 // iframe.addEventListener("mouseover",function(){
                 //     alert("HEYYYYYYYYYYY");
                 // })
 				iframe.style.width = '1024px';
 				iframe.style.height = '1024px';
-                iframe.style.border = '0px';
+                // iframe.style.border = '0px';
                 iframe.style.cursor = "pointer";
-				iframe.src ='../vdo/CARTOON_AODAOM.mp4';
+				// iframe.src ='https://streamable.com/b01yv1';
                 iframe.style.pointerEvents = "auto";
 				div.appendChild( iframe );
 
@@ -381,8 +382,7 @@
 				container.appendChild( renderer.domElement );
 
 
-
-                var video = new Element( 'SJOz3qjfQXU', 1315, 288, -250, 0.001, 4.71 ,0 ) ;
+                var video = new Element( 'SJOz3qjfQXU', 1200, -50, 10, 0.001, 4.71 ,0 ) ;
 
                 console.log("helloworld")
                 console.log(video)
