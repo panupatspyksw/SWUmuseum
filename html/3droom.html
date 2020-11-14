@@ -50,16 +50,16 @@
         
     </div>
     <!-- <script src="js/three.min.js"></script> -->
-    <script src="js/three.min.js"></script>
-    <script src="js/panolens.min.js"></script>
-    <script src="js/CSS3DRenderer.js"></script>
+    <script src="../js/three.min.js"></script>
+    <script src="../js/panolens.min.js"></script>
+    <script src="../js/CSS3DRenderer.js"></script>
 
     <script type="module">
         var up=false,down=false,left=false,right=false,zoomin = false,zoomout = false;
         let camera, scene, renderer;
 
-        const img = 'img/modelgallery3.png';
-        const img2 = 'img/HBM_duna_6000x3000_Facebook-2.jpg';
+        const img = '../img/modelgallery3.png';
+        const img2 = '../img/HBM_duna_6000x3000_Facebook-2.jpg';
         const panodiv = document.querySelector(".panodiv");
         const panorama = new PANOLENS.ImagePanorama(img);
         const viewer = new PANOLENS.Viewer({
@@ -74,7 +74,7 @@
         var btnarray = [];
         btnarray[0] = {
             style: {
-                backgroundImage: 'url(img/pause.png)',
+                backgroundImage: 'url(../img/pause.png)',
                 float: 'left'
             },
             
@@ -86,10 +86,10 @@
                 // viewer.mode = 1;
                 // }
                 if(viewer.OrbitControls.autoRotate == true){
-                    this.style.backgroundImage = "url(img/play.png)";
+                    this.style.backgroundImage = "url(../img/play.png)";
                 }
                 else{
-                    this.style.backgroundImage = 'url(img/pause.png)';
+                    this.style.backgroundImage = 'url(../img/pause.png)';
                 }
                 viewer.OrbitControls.autoRotate = !viewer.OrbitControls.autoRotate;
                 viewer.OrbitControls.update();
@@ -118,18 +118,18 @@
             var zoom = false;
             btnarray[1] = {
             style: {
-                backgroundImage: 'url(img/zoomout.png)',
+                backgroundImage: 'url(../img/zoomout.png)',
 
                 float: 'left'
             },
             
             onTap: function(){
                 if (zoom == false){
-                    this.style.backgroundImage = "url(img/zoomin.png)";
+                    this.style.backgroundImage = "url(../img/zoomin.png)";
                     zoom = true;
                 }
                 else{
-                    this.style.backgroundImage = "url(img/zoomout.png)";
+                    this.style.backgroundImage = "url(../img/zoomout.png)";
                     zoom = false;
                 }
                 var elem = document.documentElement;
@@ -157,7 +157,7 @@
 
             btnarray[2] = {
             style: {
-                backgroundImage: 'url(img/vricon.png)',
+                backgroundImage: 'url(../img/vricon.png)',
                 float: 'left'
             },
             
@@ -175,7 +175,7 @@
             
             btnarray[3] = {
             style: {
-                backgroundImage: 'url(img/arrow-up-solid.png)',
+                backgroundImage: 'url(../img/arrow-up-solid.png)',
                 float: 'left'
             },
             
@@ -187,7 +187,7 @@
 
             btnarray[4] = {
             style: {
-                backgroundImage: 'url(img/arrow-down-solid.png)',
+                backgroundImage: 'url(../img/arrow-down-solid.png)',
                 float: 'left'
             },
             
@@ -199,7 +199,7 @@
 
             btnarray[5] = {
             style: {
-                backgroundImage: 'url(img/arrow-left-solid.png)',
+                backgroundImage: 'url(../img/arrow-left-solid.png)',
                 float: 'left'
             },
             
@@ -212,7 +212,7 @@
 
             btnarray[6] = {
             style: {
-                backgroundImage: 'url(img/arrow-right-solid.png)',
+                backgroundImage: 'url(../img/arrow-right-solid.png)',
                 float: 'left'
             },
             
@@ -227,7 +227,7 @@
 
             btnarray[7] = {
             style: {
-                backgroundImage: 'url(img/home-solid.png)',
+                backgroundImage: 'url(../img/home-solid.png)',
                 float: 'left'
             },
             
@@ -244,17 +244,17 @@
             var sound = true;
             btnarray[8] = {
             style: {
-                backgroundImage: 'url(img/soundon.png)',
+                backgroundImage: 'url(../img/soundon.png)',
                 float: 'left'
             },
             
             onTap: function(){
                 if (sound == false){
-                    this.style.backgroundImage = "url(img/soundon.png)";
+                    this.style.backgroundImage = "url(../img/soundon.png)";
                     sound = true;
                 }
                 else{
-                    this.style.backgroundImage = "url(img/soundoff.png)";
+                    this.style.backgroundImage = "url(../img/soundoff.png)";
                     sound = false;
                 }
                 
@@ -262,7 +262,7 @@
             };
             btnarray[9] = {
             style: {
-                backgroundImage: 'url(img/plus.png)',
+                backgroundImage: 'url(../img/plus.png)',
                 float: 'left'
             },
             
@@ -272,7 +272,7 @@
             };
             btnarray[10] = {
             style: {
-                backgroundImage: 'url(img/minus.png)',
+                backgroundImage: 'url(../img/minus.png)',
                 float: 'left'
             },
             
@@ -339,6 +339,7 @@
 				div.style.height = '360px';
 				div.style.backgroundColor = '#000';
                 div.style.cursor = "pointer";
+                div.style.pointerEvents = "none";
                 const iframe = document.createElement( 'iframe' );
                 // iframe.addEventListener("mouseover",function(){
                 //     alert("HEYYYYYYYYYYY");
@@ -347,7 +348,8 @@
 				iframe.style.height = '1024px';
                 iframe.style.border = '0px';
                 iframe.style.cursor = "pointer";
-				iframe.src ='https://drive.google.com/file/d/1ZWLQD5Nu37WjMaAmjwuNRxUpjFlzO4VD/view?usp=sharing';
+				iframe.src ='https://www.youtube.com/embed/iOUJPCizX2E';
+                iframe.style.pointerEvents = "auto";
 				div.appendChild( iframe );
 
 				const object = new THREE.CSS3DObject( div );
