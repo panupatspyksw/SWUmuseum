@@ -62,14 +62,14 @@
     width: 13px;
     left: 2px;
     bottom: 2px;
-    background: url(/img/icon/thicon.png);
+    background: url(../img/icon/thicon.png);
     background-size: cover;
     -webkit-transition: .4s;
     transition: .4s;
   }
   
   input:checked + span.slider:before{
-    background: url(/img/icon/engicon.png);
+    background: url(../img/icon/engicon.png);
     background-size: cover;
   }
 
