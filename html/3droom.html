@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+        .panodiv{
+            width: 100%;
+            height: 100vh;
+        }
+        body {
+				background-color: #ffffff;
+                overflow: hidden;
+			}
+
+			#blocker {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+			}
+            
+            #controls{
+                z-index: 1000;
+                position: absolute;
+                background: black;
+                display: block;
+                left: 50%;
+                transform: translateX(-50%)
+            }
+
+            div#controls div{
+                baclground : black!important;
+            }
+    </style>
+</head>
+<body>
+    <div class="panodiv">
+		<div id="container"></div>
+		<div id="blocker"></div>
+    </div>
+    <div id="controls" style="height: 100px;">
+        
+    </div>
+    <!-- <script src="js/three.min.js"></script> -->
+    <script src="js/three.min.js"></script>
+    <script src="js/panolens.min.js"></script>
+    <script src="js/CSS3DRenderer.js"></script>
+
+    <script type="module">
+        var up=false,down=false,left=false,right=false,zoomin = false,zoomout = false;
+        let camera, scene, renderer;
+
+        const img = 'img/modelgallery3.png';
+        const img2 = 'img/HBM_duna_6000x3000_Facebook-2.jpg';
+        const panodiv = document.querySelector(".panodiv");
+        const panorama = new PANOLENS.ImagePanorama(img);
+        const viewer = new PANOLENS.Viewer({
+            container: panodiv,
+            controlBar: true,
+            scene: scene,
+            controlButtons: [],
+            cameraFov: 100
+        });
+        console.log(panorama)
+        viewer.OrbitControls.autoRotateSpeed = 0.5;
+        var btnarray = [];
+        btnarray[0] = {
+            style: {
+                backgroundImage: 'url(img/pause.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+                // if(viewer.mode == 1){
+                // viewer.mode = 2;
+                // }
+                // else if(viewer.mode == 2){
+                // viewer.mode = 1;
+                // }
+                if(viewer.OrbitControls.autoRotate == true){
+                    this.style.backgroundImage = "url(img/play.png)";
+                }
+                else{
+                    this.style.backgroundImage = 'url(img/pause.png)';
+                }
+                viewer.OrbitControls.autoRotate = !viewer.OrbitControls.autoRotate;
+                viewer.OrbitControls.update();
+                // var elem = document.documentElement;
+                // if (elem.requestFullscreen) {
+                //     elem.requestFullscreen();
+                // } else if (elem.webkitRequestFullscreen) { /* Safari */
+                //     elem.webkitRequestFullscreen();
+                // } else if (elem.msRequestFullscreen) { /* IE11 */
+                //     elem.msRequestFullscreen();
+                // }
+                
+
+                // if (document.exitFullscreen) {
+                //     document.exitFullscreen();
+                // } else if (document.webkitExitFullscreen) { /* Safari */
+                //     document.webkitExitFullscreen();
+                // } else if (document.msExitFullscreen) { /* IE11 */
+                //     document.msExitFullscreen();
+                // }
+                
+            }
+            };
+            
+            
+            var zoom = false;
+            btnarray[1] = {
+            style: {
+                backgroundImage: 'url(img/zoomout.png)',
+
+                float: 'left'
+            },
+            
+            onTap: function(){
+                if (zoom == false){
+                    this.style.backgroundImage = "url(img/zoomin.png)";
+                    zoom = true;
+                }
+                else{
+                    this.style.backgroundImage = "url(img/zoomout.png)";
+                    zoom = false;
+                }
+                var elem = document.documentElement;
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+                
+
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+                
+            }
+            };
+
+
+
+            btnarray[2] = {
+            style: {
+                backgroundImage: 'url(img/vricon.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+                if(viewer.mode == 1){
+                viewer.mode = 2;
+                }
+                else if(viewer.mode == 2){
+                viewer.mode = 1;
+                }
+                
+            }
+            };
+            
+            
+            btnarray[3] = {
+            style: {
+                backgroundImage: 'url(img/arrow-up-solid.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+                console.log(this);
+            }
+            };
+            
+
+            btnarray[4] = {
+            style: {
+                backgroundImage: 'url(img/arrow-down-solid.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+                
+            }
+            };
+            
+
+            btnarray[5] = {
+            style: {
+                backgroundImage: 'url(img/arrow-left-solid.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+
+            }
+            };
+            
+  
+
+            btnarray[6] = {
+            style: {
+                backgroundImage: 'url(img/arrow-right-solid.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+
+            }
+            };
+            
+
+            
+
+
+            btnarray[7] = {
+            style: {
+                backgroundImage: 'url(img/home-solid.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+                // if(viewer.mode == 1){
+                // viewer.mode = 2;
+                // }
+                // else if(viewer.mode == 2){
+                // viewer.mode = 1;
+                // }
+                
+            }
+            };
+            var sound = true;
+            btnarray[8] = {
+            style: {
+                backgroundImage: 'url(img/soundon.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+                if (sound == false){
+                    this.style.backgroundImage = "url(img/soundon.png)";
+                    sound = true;
+                }
+                else{
+                    this.style.backgroundImage = "url(img/soundoff.png)";
+                    sound = false;
+                }
+                
+            }
+            };
+            btnarray[9] = {
+            style: {
+                backgroundImage: 'url(img/plus.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+
+            }
+            };
+            btnarray[10] = {
+            style: {
+                backgroundImage: 'url(img/minus.png)',
+                float: 'left'
+            },
+            
+            onTap: function(){
+
+            }
+            };
+            // viewer.appendControlItem(btnarray[9]);
+            // viewer.appendControlItem(btnarray[10]);
+            // viewer.appendControlItem(btnarray[3]);
+            // viewer.appendControlItem(btnarray[4]);
+            // viewer.appendControlItem(btnarray[5]);
+            // viewer.appendControlItem(btnarray[6]);
+
+            // viewer.appendControlItem(btnarray[7]);
+
+            // viewer.appendControlItem(btnarray[8]);
+            // viewer.appendControlItem(btnarray[0]);
+            // viewer.appendControlItem(btnarray[1]);
+            // viewer.appendControlItem(btnarray[2]);
+
+            //setting movement button
+            // var allbtn = viewer.widget.barElement.children
+            // console.log(allbtn)
+            // allbtn[1].addEventListener("mousedown",function(){zoomin = true})
+            // allbtn[1].addEventListener("mouseup",function(){zoomin = false})
+            // allbtn[2].addEventListener("mousedown",function(){zoomout = true})
+            // allbtn[2].addEventListener("mouseup",function(){zoomout = false})
+            // allbtn[3].addEventListener("mousedown",function(){up = true})
+            // allbtn[3].addEventListener("mouseup",function(){up = false})
+            // allbtn[4].addEventListener("mousedown",function(){down = true})
+            // allbtn[4].addEventListener("mouseup",function(){down = false})
+            // allbtn[5].addEventListener("mousedown",function(){left = true})
+            // allbtn[5].addEventListener("mouseup",function(){left = false})
+            // allbtn[6].addEventListener("mousedown",function(){right = true})
+            // allbtn[6].addEventListener("mouseup",function(){right = false})
+
+
+        console.log(viewer)
+        viewer.OrbitControls.autoRotate = true;
+        viewer.camera.position.set(25.653391105397375, 1.8967820994549214, -0.5529398346184053);
+        viewer.add(panorama);
+
+
+        var bar= document.querySelectorAll(".panodiv div")[3];
+            bar.style.zIndex=1000;
+            var controlbar = document.querySelector("#controls")
+            controlbar.appendChild(bar);
+            var divinbar = document.querySelector("#controls div")
+            divinbar.style.background = "black";
+            viewer.OrbitControls.autoRotate = true;
+
+
+//         import * as THREE from '../build/three.module.js';
+
+// import { TrackballControls } from '../examples/jsm/controls/TrackballController.js';
+
+			let controls;
+
+			function Element( id, x, y, z, rx ,ry ,rz) {
+
+				const div = document.createElement( 'div' );
+				div.style.width = '480px';
+				div.style.height = '360px';
+				div.style.backgroundColor = '#000';
+                div.style.cursor = "pointer";
+                const iframe = document.createElement( 'iframe' );
+                // iframe.addEventListener("mouseover",function(){
+                //     alert("HEYYYYYYYYYYY");
+                // })
+				iframe.style.width = '1024px';
+				iframe.style.height = '1024px';
+                iframe.style.border = '0px';
+                iframe.style.cursor = "pointer";
+				iframe.src ='https://drive.google.com/file/d/1ZWLQD5Nu37WjMaAmjwuNRxUpjFlzO4VD/view?usp=sharing';
+				div.appendChild( iframe );
+
+				const object = new THREE.CSS3DObject( div );
+                object.position.set( x, y, z );
+                object.rotation.set( rx, ry, rz)
+                
+				return object;
+
+			};
+
+			init();
+
+			function init() {
+
+				const container = document.querySelector( '.panodiv' );
+				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 5000 );
+				camera.position.set( 0, 0, 750 );
+
+				scene = new THREE.Scene();
+                // renderer =viewer.getRenderer)
+
+				renderer = new THREE.CSS3DRenderer();
+                renderer.setSize( window.innerWidth, window.innerHeight );
+                renderer.domElement.style.position = 'absolute';
+                renderer.domElement.style.top = 0;
+                renderer.domElement.style.backgroundColor = 'transparent';
+                renderer.domElement.style.zIndex = 0;
+                // renderer.domElement.style.pointerEvents = "none"
+				container.appendChild( renderer.domElement );
+
+
+
+                var video = new Element( 'SJOz3qjfQXU', 1315, 288, -250, 0.001, 4.71 ,0 ) ;
+
+                console.log("helloworld")
+                console.log(video)
+                scene.add( video );
+                
+                viewer.add(panorama)
+
+			}
+
+
+            // console.log(viewer.getControlName())
+
+
+
+            animate()
+
+			function animate() {
+            requestAnimationFrame( animate );
+            // controls.update();
+            renderer.render( scene, viewer.getCamera() );
+            if(up == true){
+                viewer.getControl().rotateUp(-0.01);
+            }
+            if(down == true){
+                viewer.getControl().rotateUp(+0.01);
+            }
+            if(left == true){
+                viewer.getControl().rotateLeft(-0.01);
+            }
+            if(right == true){
+                viewer.getControl().rotateLeft(+0.01);
+            }
+            if(zoomin == true){
+                if(viewer.camera.fov != 60){
+                viewer.effect.setSize( viewer.container.clientWidth, viewer.container.clientHeight );
+            viewer.render();
+            viewer.camera.fov -= 1;
+            viewer.camera.updateProjectionMatrix();
+            }}
+            if(zoomout == true){
+                if(viewer.camera.fov != 120){
+
+                viewer.effect.setSize( viewer.container.clientWidth, viewer.container.clientHeight );
+            viewer.render();
+            viewer.camera.fov += 1;
+            viewer.camera.updateProjectionMatrix();
+            }
+            }
+            
+            }
+
+ 
+
+            window.addEventListener( 'resize', onWindowResize, false );
+
+            function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+
+            }
+
+            // viewer.addUpdateCallback( function(){
+            // if ( viewer.mode === PANOLENS.Modes.NORMAL ) {
+            //     renderer.render( scene, viewer.getCamera() );
+            // } else {
+            //     stereorenderer.render( stereoscene, viewer.getCamera() );
+            // }
+            // });
+
+    </script>
+</body>
+</html>
