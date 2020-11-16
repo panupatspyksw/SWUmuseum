@@ -15,3 +15,68 @@
     font-family: 'Kanit', sans-serif;
     font-weight: 400;
 }
+
+.post_menu{
+    padding: 5%;
+    text-align: center;
+}
+
+.card{
+    margin: 2%;
+    display: inline-block;
+    width: 45%;
+    background: white;
+    overflow: hidden;
+    height: 200px;
+    padding: 2% 5%;
+    position: relative;
+    transition: .5s;
+    text-decoration: none;
+    box-shadow: -1px 8px 25px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 8px 25px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 8px 25px 0px rgba(0,0,0,0.75);
+}
+
+.overlay{
+    background: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    top:0%;
+    left: 0%;
+    transition: .5s;
+}
+
+.title{
+    font-size: 30px;
+    padding-top: 100px;
+    position: relative;
+    color: white;
+    transition: .5s;
+
+}
+.card .des{
+    position: relative;
+    display: block;
+    height: 0;
+    color: white;
+    opacity: 0;
+    transition: .5s;
+    font-size: 20px;
+
+}
+
+.card:hover .des{
+
+    opacity: 1;
+}
+
+.card:hover .title{
+    padding: 10px 0;
+    font-size: 30px;
+}
+
+.card:hover .overlay{
+    opacity: 0.9;
+}
