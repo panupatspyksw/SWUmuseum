@@ -80,3 +80,19 @@
 .card:hover .overlay{
     opacity: 0.9;
 }
+
+.paragraph{
+    color: white;
+    text-indent: 50px;
+
+}
+
+.history{
+    padding: 0% 10% 5% 10%;
+    
+}
+
+.history img{
+    -webkit-box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59); 
+    box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59);
+}
