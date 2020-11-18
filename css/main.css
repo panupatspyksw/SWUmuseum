@@ -96,3 +96,27 @@
     -webkit-box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59); 
     box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59);
 }
+
+.post_model{
+    padding: 5% 5%;
+    text-align: center;
+}
+
+.post_model .card{
+    width: 370px;
+    height: 370px;
+    padding: 3%;
+}
+
+.post_model .card .title{
+padding: 0%;
+
+}
+
+.post_model .card .overlay{
+    opacity: 0.3;
+}
+
+.post_model .card:hover .overlay{
+    opacity: 0.9;
+}
