@@ -177,3 +177,48 @@ padding: 0%;
     -webkit-box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59); 
     box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59);
 }
+
+.gallery{
+    margin: 0% auto;
+    width: 80%;
+}
+
+
+.vdo{
+    overflow-x: hidden;
+    margin: 0% auto;
+    width: 80%;
+    -webkit-box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59); 
+    box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59);
+}
+
+.vdo iframe{
+    width: 100%;
+    height: 500px;
+
+}
+.gallery .image{
+    position: relative;
+    display: inline-block;
+    width: 33.00%;
+    height: 400px;
+    overflow: hidden;
+    -webkit-box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59); 
+    box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59);
+}
+
+
+
+.gallery .image:nth-child(5) img{
+    position: absolute;
+    top: 0%;
+    width: 100%;
+}
+
+.data h1{
+    margin: 50px 0;
+}
+
+.data{
+    padding: 8% 0;
+}
