@@ -4,6 +4,26 @@
     box-sizing: border-box;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
 .museumview{
     height: 80vh;
     width: 100%;
@@ -103,6 +123,7 @@
 }
 
 .post_model .card{
+    cursor: pointer;
     width: 370px;
     height: 370px;
     padding: 3%;
@@ -119,4 +140,40 @@ padding: 0%;
 
 .post_model .card:hover .overlay{
     opacity: 0.9;
+}
+
+.content_post{
+    position: fixed;
+    top: -5%;
+}
+
+.content_post .insidebox{
+    padding: 5%;
+}
+
+.content_post .insidebox .content-box{
+    padding-right: 5%;
+}
+
+.content_post .insidebox .titlee{
+    font-size: 50px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+.content_post .insidebox .des{
+    font-size: 20px;
+    text-indent: 50px;
+
+}
+.content_post div .row{
+    display: flex;
+}
+
+.content_post .AR{
+    margin-top: 5%;
+}
+
+.content_post img{
+    -webkit-box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59); 
+    box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59);
 }

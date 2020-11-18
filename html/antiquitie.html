@@ -69,7 +69,7 @@
         <h1 style="font-family: 'Roboto', sans-serif; color:rgb(29, 29, 29); font-size: 200px; position: absolute; bottom:0%; line-height: 140px; ">ANTIQUITIES</h1>
     </div>
     <div class="post_model" style=" background-color:rgb(29, 29, 29)">
-        <a href="" class="card" style="background: url(../img/model1.png); background-position: 50% 50%; background-size: cover;">
+        <div class="card" style="background: url(../img/model1.png); background-position: 50% 50%; background-size: cover;">
         <div>
             <div class="overlay"></div>
             <div class="title th">
@@ -79,8 +79,8 @@
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </div>
         </div>
-        </a>
-        <a href="" class="card" style="background: url(../img/model2.png); background-position: 50% 50%; background-size: cover;">
+        </div>
+        <div class="card" style="background: url(../img/model2.png); background-position: 50% 50%; background-size: cover;">
             <div>
             <div class="overlay"></div>
             <div class="title th">
@@ -90,8 +90,8 @@
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </div>
         </div>
-        </a>
-        <a href="" class="card" style="background: url(../img/model3.png); background-position: 50% 50%; background-size: cover;">
+        </div>
+        <div class="card" style="background: url(../img/model3.png); background-position: 50% 50%; background-size: cover;">
         <div>
             <div class="overlay"></div>
             <div class="title th">
@@ -101,5 +101,80 @@
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </div>
         </div>
-        </a>
+        </div>
     </div>
+
+<div class="overlaybody" style="transition: .3s all;background: black; height: 100vh; width: 100%; position: fixed; top: 0%; pointer-events: none; opacity: 0;">
+</div>
+
+    <div class="content_post" style=" background: black; width: 84%; height: 84vh; margin: 8%; overflow-y: scroll; border:none; -webkit-box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59); 
+    box-shadow: -1px 1px 24px 5px rgba(0,0,0,0.59);">
+        <div class="insidebox" style=" position:relative; background: white; border: none;">
+            <span id="closebtn" style="cursor: pointer; position: fixed; right: 3%; top: 5%;"><i style="cursor: pointer; color: white;" class="fas fa-times fa-4x"></i></span>
+
+             <div class="row">
+                 <div class="content-box">
+                    <div class="titlee th">
+                        พระพุทธรูปเทวทูต
+                    </div>
+                    <div class="des "style="font-family: 'Roboto', sans-serif;">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                        <br>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
+                        
+                    </div>
+                 </div>
+                 <div class="image">
+                    <img src="../img/model3.png" alt="">
+                 </div>
+             </div>
+             <div class="AR">
+                 <div class="sketchfab-embed-wrapper">
+                    <iframe title="A 3D model" width="100%" height="500px" src="https://sketchfab.com/models/124b205a64dd4b49b2984feb752f9abc/embed?autostart=0&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_watermark=1&amp;ui_watermark_link=1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+                        <a href="https://sketchfab.com/3d-models/cemetery-angel-scottino-124b205a64dd4b49b2984feb752f9abc?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Cemetery Angel - Scottino</a>
+                        by <a href="https://sketchfab.com/misterdevious?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">misterdevious</a>
+                        on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+                    </p>
+                </div>
+             </div>
+        </div>
+    </div>
+<script>
+    var closebtn = document.getElementById("closebtn");
+    var contentpost = document.querySelector(".content_post");
+    var modelpost = document.querySelectorAll(".card");
+    var overlaybg = document.querySelector(".overlaybody");
+    contentpost.style.display = "none";
+
+    closebtn.addEventListener("click",function(){
+        contentpost.style.display = "none";
+        overlaybg.style.opacity = "0";
+        document.body.style.overflowY = "scroll";
+
+    })
+
+
+    modelpost.forEach(function(elem){
+        elem.addEventListener("click",open)
+
+    })
+
+    function open(){
+        if(contentpost.style.display === "none"){
+            contentpost.style.display = "block";
+            overlaybg.style.opacity = "0.7";
+            document.body.style.overflowY = "hidden";
+        }
+        else{
+            contentpost.style.display = "none";
+        }
+    }
+
+    
+</script>
+
+
+</body>
+</html>
+
