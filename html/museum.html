@@ -189,7 +189,7 @@
 
         #panoramamenu .panolink{
             cursor: pointer;
-            /* overflow: hidden; */
+            overflow: hidden;
             height: 60px;
             display: inline-block;
             margin: 0 5px;
@@ -472,10 +472,8 @@
         var spot1M2,spot2M2
         spot1M2 = new PANOLENS.Infospot( 300, '../img/Mup2.png' );
         spot1M2.position.set( 4844.74, -1215.75, 65.30 );
-        spot1M2.addHoverText( 'The Where Is Bar' );
         spot2M2 = new PANOLENS.Infospot( 300, '../img/Mrightup.png' );
         spot2M2.position.set( 1978.43, -2134.83, -4054.90 );
-        spot2M2.addHoverText( 'The Where Is Bar' );
         panorama2.add(spot1M2,spot2M2)
         spot1M2.addEventListener("click",function(){
             changeview(1)
@@ -487,10 +485,8 @@
         var spot1M3,spot2M3
         spot1M3 = new PANOLENS.Infospot( 300, '../img/Mup3.png' );
         spot1M3.position.set( 171.00, -1189.70, 4846.55 );
-        spot1M3.addHoverText( 'The Where Is Bar' );
         spot2M3 = new PANOLENS.Infospot( 300, '../img/Mleft.png' );
         spot2M3.position.set( 4463.20, 546.30, -2164.83 );
-        spot2M3.addHoverText( 'The Where Is Bar' );
         panorama3.add(spot1M3,spot2M3)
         spot1M3.addEventListener("click",function(){
             changeview(2)
@@ -502,10 +498,8 @@
         var spot1M4,spot2M4
         spot1M4 = new PANOLENS.Infospot( 300, '../img/Mup5.png' );
         spot1M4.position.set( -3969.77, -2049.67, -2231.88 );
-        spot1M4.addHoverText( 'The Where Is Bar' );
         spot2M4 = new PANOLENS.Infospot( 300, '../img/Mrightup2.png' );
         spot2M4.position.set( -3913.90, -1764.34, 2543.92 );
-        spot2M4.addHoverText( 'The Where Is Bar' );
         panorama4.add(spot1M4,spot2M4)
         spot1M4.addEventListener("click",function(){
             changeview(3)
