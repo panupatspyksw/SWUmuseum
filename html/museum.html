@@ -159,7 +159,7 @@
         }
 
         #bottombox{
-            overflow: hidden;
+            /* overflow: hidden; */
             position: absolute;
             z-index: 0;
             z-index: 0;
@@ -171,20 +171,26 @@
         #panoramamenu{
             padding: 10px 0;
             text-align: center;
-            background: rgba(189, 27, 32, 0.596);
+            background: rgba(156, 14, 19, 0.801);
             width: 100%;
             height: 100%;
         }
         #panoramamenu .panolink img{
             width: 120px;
             height: 60px;
+            -webkit-box-shadow: inset 1px 1px 30px 0px rgba(0, 0, 0, 1);
+            -moz-box-shadow:    inset 1px 1px 30px 0px rgba(0, 0, 0, 1);
+            box-shadow:         inset 1px 1px 30px 0px rgba(0, 0, 0, 1);
         }
 
-        #panoramamenu .panolink img:hover{
-            border: solid 2px white
+        #panoramamenu .panolink.checked{
+            border: solid 5px rgba(0, 0, 0, 0.432);
         }
 
         #panoramamenu .panolink{
+            cursor: pointer;
+            /* overflow: hidden; */
+            height: 60px;
             display: inline-block;
             margin: 0 5px;
         }
@@ -218,10 +224,47 @@
             position: relative;
             height: 40px;
             width: 40px;
-            overflow: hidden;
+            /* overflow: hidden; */
             display: inline-block;
             cursor: pointer;
         }
+
+        .infobox{
+            width: 400px;
+            background: white;
+            position: absolute;
+        }
+        .infobox img{
+            
+            width: 100%;
+            height: 200px;
+        }
+        .infoinside{
+            padding: 10px;
+        }
+        .infobox h3{
+        margin-bottom: 7px;
+        }
+        .infobox .tab{
+            display: flex;
+        }
+        .infobox .tab button{
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            color: rgb(219, 28, 28);
+            width: 100px;
+            height: 40px;
+            border: solid 1px rgb(209, 209, 209);
+            margin-right: 5px;
+            border-radius: 5px;
+            background: none;
+            cursor: pointer;
+        }
+        .classlvl{
+            height: 50px;
+            line-height: 50px;
+        }
+
     </style>
 </head>
 <body>
@@ -247,7 +290,7 @@
     </div>
     <div id="menuburger" class="">
         <div id="menublock">
-            <div><a class="th" href="">กลับไปหน้าแรก</a></div>
+            <div><a class="th" href="../html/index.html">กลับไปหน้าแรก</a></div>
             <div><a class="th">แนะนำสัญลักษณ์</a></div>
             <div><a><span class="th">ไทย</span>/<span class="en">ENG</span></a></div>
 
@@ -262,10 +305,30 @@
     </div>
 </div>
 
+<div class="infobox" id="contentbox1" style="display:none">
+    <img src="../img/centerIMGMOOM1.jpg" alt="">
+    <div class="infoinside">
+        <h3 class="en">Lorem Ipsum is simply dummy</h3>
+        <div class="tab">
+            <button>Download</button>
+            <button>Screenshot</button>
+            <button>Share</button>
+        </div>
+        <p class="en" style="padding-top:10px;">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+  </div>
 
 <div id="bottombox">
     <div id="navbtn">
         <div class="iconmenu">
+            <div class="panomenu" id="pbtn13" tabindex="0"><img src="../img/classicon.png" alt="">
+                <div id="classlvls" style="background: rgba(255, 255, 255, 0.678); position: absolute; top:-270%; z-index: 1500; width: 100px; " class="th" >
+                    <div class="classlvl" style="font-weight: 800; text-decoration: underline">ชั้นที่ 1</div>
+                    <div class="classlvl" style="font-weight: 500;">ชั้นที่ 2</div>
+                </div>
+            </div>
             <div class="panomenu" id="pbtn1" tabindex="0"><img src="../img/plus.png" alt=""></div>
             <div class="panomenu" id="pbtn2" tabindex="0"><img src="../img/minus.png" alt=""></div>
             <div class="panomenu" id="pbtn3" tabindex="0"><img src="../img/arrow-up-solid.png" alt=""></div>
@@ -281,23 +344,23 @@
         </div>
     </div>
     <div id="panoramamenu">
-        <div class="panolink">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg" alt="">
+        <div class="panolink checked">
+            <img src="../img/ROOMMOOM2.jpg" alt="">
         </div>
         <div class="panolink">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg" alt="">
+            <img src="../img/ROOMMOOM1.jpg" alt="">
         </div>
         <div class="panolink">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg" alt="">
+            <img src="../img/ROOMMOOM5.jpg" alt="">
         </div>
         <div class="panolink">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg" alt="">
+            <img src="../img/ROOMMOOM6.jpg" alt="">
         </div>
     </div>
 </div>
 <script src="../js/three.min.js"></script>
 <script src="../js/panolens.min.js"></script>
-
+<script src="../js/CSS3DRenderer.js"></script>
     <script>
         var mapbtn = document.getElementById("mapbtn");
         var bigmap = document.getElementById("bigmap");
@@ -328,6 +391,7 @@
 
         // #PANOSECTION
         var GPSicons = document.querySelectorAll("g.point");
+        var pano = document.querySelectorAll(".panolink")
 
         GPSicons.forEach(function(ele, index){
             ele.addEventListener("click",function(){
@@ -340,8 +404,12 @@
         GPSicons.forEach(function(ele){
             ele.classList.remove("checked");
         })
+
         GPSicons[index-1].classList.add("checked");
         }
+
+        
+
 
         var panocontainer = document.getElementById("panocontainer")
         const viewer = new PANOLENS.Viewer({container: panocontainer, output: 'console',controlBar: false});
@@ -352,11 +420,14 @@
 
 
         var infospot, infospot2;
-        infospot = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        infospot = new PANOLENS.Infospot( 300, '../img/infoimg/infoIC.png' );
+        console.log(infospot)
+
         infospot.position.set( 4949.56, -816.59, 161.78 );
-        infospot.addHoverText( 'The Where Is Bar' );
-        infospot2 = new PANOLENS.Infospot( 500, PANOLENS.DataImage.Info );
+        infospot.addHoverElement( document.getElementById( 'contentbox1' ), 300 );
+        infospot2 = new PANOLENS.Infospot( 500, '../img/Mup.png' );
         infospot2.position.set( -4434.87, -2281.75, 258.53 );
+        
 
         panorama.add( infospot );
         panorama.add( infospot2 );
@@ -372,31 +443,37 @@
             viewer.setPanorama(panorama)
             viewer.add(panorama)
             mapGPS(1)
+            panocheck(1)
             }
             else if(moom == 2){
             viewer.setPanorama(panorama2)
             viewer.add(panorama2)
             mapGPS(2)
+            panocheck(2)
             }
             else if(moom == 3){
             viewer.setPanorama(panorama3)
             viewer.add(panorama3)
             mapGPS(3)
+            panocheck(3)
+
             }
             else if(moom == 4){
             viewer.setPanorama(panorama4)
             viewer.add(panorama4)
             mapGPS(4)
+            panocheck(4)
+
             }
         }
 
 
 
         var spot1M2,spot2M2
-        spot1M2 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot1M2 = new PANOLENS.Infospot( 300, '../img/Mup2.png' );
         spot1M2.position.set( 4844.74, -1215.75, 65.30 );
         spot1M2.addHoverText( 'The Where Is Bar' );
-        spot2M2 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot2M2 = new PANOLENS.Infospot( 300, '../img/Mrightup.png' );
         spot2M2.position.set( 1978.43, -2134.83, -4054.90 );
         spot2M2.addHoverText( 'The Where Is Bar' );
         panorama2.add(spot1M2,spot2M2)
@@ -408,10 +485,10 @@
         })
 
         var spot1M3,spot2M3
-        spot1M3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot1M3 = new PANOLENS.Infospot( 300, '../img/Mup3.png' );
         spot1M3.position.set( 171.00, -1189.70, 4846.55 );
         spot1M3.addHoverText( 'The Where Is Bar' );
-        spot2M3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot2M3 = new PANOLENS.Infospot( 300, '../img/Mleft.png' );
         spot2M3.position.set( 4463.20, 546.30, -2164.83 );
         spot2M3.addHoverText( 'The Where Is Bar' );
         panorama3.add(spot1M3,spot2M3)
@@ -423,10 +500,10 @@
         })
 
         var spot1M4,spot2M4
-        spot1M4 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot1M4 = new PANOLENS.Infospot( 300, '../img/Mup5.png' );
         spot1M4.position.set( -3969.77, -2049.67, -2231.88 );
         spot1M4.addHoverText( 'The Where Is Bar' );
-        spot2M4 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot2M4 = new PANOLENS.Infospot( 300, '../img/Mrightup2.png' );
         spot2M4.position.set( -3913.90, -1764.34, 2543.92 );
         spot2M4.addHoverText( 'The Where Is Bar' );
         panorama4.add(spot1M4,spot2M4)
@@ -442,6 +519,7 @@
         // #controls_panomenu
         viewer.camera.position.set(0.9959545915187218,0.08376295032060595,0.032530290290184755);
         viewer.OrbitControls.autoRotate = true;
+        var lvlbtn = document.getElementById("pbtn13");
         var zoomin = document.getElementById("pbtn1");
         var zoomout = document.getElementById("pbtn2");
         var rotateup = document.getElementById("pbtn3");
@@ -625,6 +703,30 @@
             }
             viewer.camera.updateProjectionMatrix();
 
+        })
+
+        document.getElementById("classlvls").style.display = "none"
+        lvlbtn.addEventListener("click",function(){
+            if(document.getElementById("classlvls").style.display == "none"){
+                document.getElementById("classlvls").style.display = "block"
+            }
+            else{
+                document.getElementById("classlvls").style.display = "none"
+
+            }
+        })
+
+        function panocheck(c){
+            pano.forEach(function(ele, index){
+                ele.classList.remove("checked")
+            })
+            pano[c-1].classList.add("checked")
+        }
+        pano.forEach(function(ele, index){
+            ele.addEventListener("click",function(){
+                changeview(index+1)
+            })
+            
         })
 
     </script>
