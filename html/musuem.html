@@ -266,18 +266,18 @@
 <div id="bottombox">
     <div id="navbtn">
         <div class="iconmenu">
-            <div class="panomenu" id="btn1" tabindex="0"><img src="../img/plus.png" alt=""></div>
-            <div class="panomenu" id="btn2" tabindex="0"><img src="../img/minus.png" alt=""></div>
-            <div class="panomenu" id="btn3" tabindex="0"><img src="../img/arrow-up-solid.png" alt=""></div>
-            <div class="panomenu" id="btn4" tabindex="0"><img src="../img/arrow-down-solid.png" alt=""></div>
-            <div class="panomenu" id="btn5" tabindex="0"><img src="../img/arrow-left-solid.png" alt=""></div>
-            <div class="panomenu" id="btn6" tabindex="0"><img src="../img/arrow-right-solid.png" alt=""></div>
-            <div class="panomenu" id="btn7" tabindex="0"><img src="../img/home-solid.png" alt=""></div>
-            <div class="panomenu" id="btn8" tabindex="0"><img src="../img/soundon.png" alt=""></div>
-            <div class="panomenu" id="btn9" tabindex="0"><img src="../img/pause.png" alt=""></div>
-            <div class="panomenu" id="btn10" tabindex="0"><img src="../img/zoomout.png" alt=""></div>
-            <div class="panomenu" id="btn11" tabindex="0"><img src="../img/vricon.png" alt=""></div>
-            <div class="panomenu" id="btn12" tabindex="0"><img src="../img/plus.png" alt=""></div>
+            <div class="panomenu" id="pbtn1" tabindex="0"><img src="../img/plus.png" alt=""></div>
+            <div class="panomenu" id="pbtn2" tabindex="0"><img src="../img/minus.png" alt=""></div>
+            <div class="panomenu" id="pbtn3" tabindex="0"><img src="../img/arrow-up-solid.png" alt=""></div>
+            <div class="panomenu" id="pbtn4" tabindex="0"><img src="../img/arrow-down-solid.png" alt=""></div>
+            <div class="panomenu" id="pbtn5" tabindex="0"><img src="../img/arrow-left-solid.png" alt=""></div>
+            <div class="panomenu" id="pbtn6" tabindex="0"><img src="../img/arrow-right-solid.png" alt=""></div>
+            <div class="panomenu" id="pbtn7" tabindex="0"><img src="../img/home-solid.png" alt=""></div>
+            <div class="panomenu" id="pbtn8" tabindex="0"><img src="../img/soundon.png" alt=""></div>
+            <div class="panomenu" id="pbtn9" tabindex="0"><img src="../img/rotateautoOFF.png" alt=""></div>
+            <div class="panomenu" id="pbtn10" tabindex="0"><img src="../img/zoomout.png" alt=""></div>
+            <div class="panomenu" id="pbtn11" tabindex="0"><img src="../img/vricon.png" alt=""></div>
+            <div class="panomenu" id="pbtn12" tabindex="0"><img src="../img/hidden.png" alt=""></div>
         </div>
     </div>
     <div id="panoramamenu">
@@ -344,7 +344,7 @@
         }
 
         var panocontainer = document.getElementById("panocontainer")
-        const viewer = new PANOLENS.Viewer({container: panocontainer, output: 'console'});
+        const viewer = new PANOLENS.Viewer({container: panocontainer, output: 'console',controlBar: false});
         var panorama = new PANOLENS.ImagePanorama( '../img/ROOMMOOM2.jpg' );
         var panorama2 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM1.jpg' );
         var panorama3 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM5.jpg' );
@@ -438,12 +438,194 @@
         })
 
 
-        viewer.addUpdateCallback(function(){
-            console.log("EIEIEIEIEI");
-            // viewer.getControl().rotateUp(-0.01);
+
+        // #controls_panomenu
+        viewer.camera.position.set(0.9959545915187218,0.08376295032060595,0.032530290290184755);
+        viewer.OrbitControls.autoRotate = true;
+        var zoomin = document.getElementById("pbtn1");
+        var zoomout = document.getElementById("pbtn2");
+        var rotateup = document.getElementById("pbtn3");
+        var rotatedown = document.getElementById("pbtn4");
+        var rotateleft = document.getElementById("pbtn5");
+        var rotateright = document.getElementById("pbtn6");
+        var homebtn = document.getElementById("pbtn7");
+        var sound = document.getElementById("pbtn8");
+        var autorotate = document.getElementById("pbtn9");
+        var fullscreen = document.getElementById("pbtn10");
+        var vr = document.getElementById("pbtn11");
+        var hidden = document.getElementById("pbtn12");
+        var zoomN = false;
+        var zoomO = false;
+        var rotateU = false, rotateD = false, rotateL = false, rotateR = false;
+        zoomin.addEventListener("mousedown",function(){
+            zoomN = true;
+        })
+        zoomin.addEventListener("mouseup",function(){
+            zoomN = false;
+        })
+        zoomin.addEventListener("blur",function(){
+            zoomN = false;
+        })
+
+        zoomout.addEventListener("mousedown",function(){
+            zoomO = true;
+        })
+        zoomout.addEventListener("mouseup",function(){
+            zoomO = false;
+        })
+        zoomout.addEventListener("blur",function(){
+            zoomO = false;
+        })
+
+        rotateup.addEventListener("mousedown",function(){
+            rotateU = true;
+        })
+        rotateup.addEventListener("mouseup",function(){
+            rotateU = false;
+        })
+        rotateup.addEventListener("blur",function(){
+            rotateU = false;
+        })
+        
+        rotatedown.addEventListener("mousedown",function(){
+            rotateD = true;
+        })
+        rotatedown.addEventListener("mouseup",function(){
+            rotateD = false;
+        })
+        rotatedown.addEventListener("blur",function(){
+            rotateD = false;
+        })
+
+        rotateleft.addEventListener("mousedown",function(){
+            rotateL = true;
+        })
+        rotateleft.addEventListener("mouseup",function(){
+            rotateL = false;
+        })
+        rotateleft.addEventListener("blur",function(){
+            rotateL = false;
+        })
+
+        rotateright.addEventListener("mousedown",function(){
+            rotateR = true;
+        })
+        rotateright.addEventListener("mouseup",function(){
+            rotateR = false;
+        })
+        rotateright.addEventListener("blur",function(){
+            rotateR = false;
+        })
+
+        homebtn.addEventListener("click",function(){
+            viewer.camera.position.set(0.9959545915187218,0.08376295032060595,0.032530290290184755);
+        })
+
+        autorotate.addEventListener("click",function(){
+            viewer.OrbitControls.autoRotate = !viewer.OrbitControls.autoRotate;
+            if(viewer.OrbitControls.autoRotate){
+            document.querySelector("#pbtn9 img").src = "../img/rotateautoOFF.png";
+            }
+            else{
+            document.querySelector("#pbtn9 img").src = "../img/rotateautoON.png";
+            }
+        })
+
+        var soundON = false;
+        sound.addEventListener("click",function(){
+            soundON = !soundON;
+            console.log(soundON)
+            if(soundON){
+            document.querySelector("#pbtn8 img").src = "../img/soundoff.png";
+            }
+            else{
+            document.querySelector("#pbtn8 img").src = "../img/soundon.png";
+            }
+        })
+
+        var fullscn = false;
+        fullscreen.addEventListener("click",function(){
+            fullscn = !fullscn;
+            if(fullscn){
+            document.querySelector("#pbtn10 img").src = "../img/zoomin.png";
+            }
+            else{
+            document.querySelector("#pbtn10 img").src = "../img/zoomout.png";
+            }
+            var elem = document.documentElement;
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    elem.msRequestFullscreen();
+                }
+                
+
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+        })
+
+        vr.addEventListener("click",function(){
+            if(viewer.mode == 1){
+                viewer.mode = 2;
+                }
+                else if(viewer.mode == 2){
+                viewer.mode = 1;
+            }
+        })
+
+        var hidemenu = false;
+        hidden.addEventListener("click",function(){
+            hidemenu = !hidemenu;
+            if(hidemenu){
+                document.querySelector("#panoramamenu").style.display="none";
+                document.querySelectorAll(".panomenu").forEach(function(ele)
+                {
+                    ele.style.display = "none"
+                })
+                document.querySelector(".iconmenu").style.background="none";
+                this.style.display = "inline-block";
+            }
+            else{
+                document.querySelector("#panoramamenu").style.display="block";
+                document.querySelectorAll(".panomenu").forEach(function(ele){
+                ele.style.display = "inline-block"
+            })
+                document.querySelector(".iconmenu").style.background="rgba(24, 24, 24, 0.589)";
+                this.style.display = "inline-block";
+            }
+
 
         })
 
+        viewer.addUpdateCallback(function(){
+            if(zoomN == true && viewer.camera.fov != 30){
+                viewer.camera.fov -= 1;
+            }
+            if(zoomO == true && viewer.camera.fov != 120){
+                viewer.camera.fov += 1;
+            }
+            if(rotateU == true){
+                viewer.getControl().rotateUp(-0.01);
+            }
+            if(rotateD == true){
+                viewer.getControl().rotateUp(+0.01);
+            }
+            if(rotateL == true){
+                viewer.getControl().rotateLeft(-0.01);
+            }
+            if(rotateR == true){
+                viewer.getControl().rotateLeft(+0.01);
+            }
+            viewer.camera.updateProjectionMatrix();
+
+        })
 
     </script>
 
