@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+    <style>
+        .th{
+        font-family: 'Kanit', sans-serif;
+        font-weight: 400;
+        }
+        .en{
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            overflow: hidden;
+        }
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+
+        div:focus{
+            outline: none;
+        }
+
+        .container {
+        display: inline-block;
+        cursor: pointer;
+        }
+
+        .navbar{
+            position: fixed;
+            top: 2%;
+            right: 2%;
+            z-index: 1998;
+            text-align: right;
+        }
+
+        .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: #333;
+        margin: 6px 0;
+        transition: 0.4s;
+        }
+
+        .change .bar1, .change .bar2, .change .bar3 {
+
+        background-color: white;
+
+        }
+
+        .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+        }
+
+        .change .bar2 {opacity: 0;}
+
+        .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+        }
+
+        #bigmap{
+            pointer-events: none;
+            position: absolute;
+            top: 70%;
+            right: 30%;
+            width: 500px;
+            transition: .5s;
+            visibility: hidden;
+            opacity: 0;
+            transform: scale(0);
+            transform-origin: top right;
+        }
+
+        #bigmap.show{
+            visibility: visible;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+
+        g.point{
+            pointer-events: visible;
+            cursor: pointer;
+            transition: .3s all;
+
+        }
+        g.point:hover{
+            opacity: 0.5;
+
+        }
+
+        g.point.checked{
+            animation: example .4s ease-in .5s infinite alternate;
+
+        }
+
+        #mapbtn{
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        @keyframes example {
+        from {transform: translateY(0%);}
+        to {transform: translateY(5%);}
+        }
+
+        #burger{
+            margin-right: 0px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2000;
+        }
+        #menuburger{
+            z-index: 1999;
+            opacity: 0;
+            position: fixed;
+            top: 0%;
+            right: -300px;
+            height: 100vh;
+            width: 300px;
+            background: black;
+            color: white;
+            transition: .4s;
+            -webkit-box-shadow: 0px 0px 23px 0px rgba(50, 50, 50, 0.91);
+            -moz-box-shadow:    0px 0px 23px 0px rgba(50, 50, 50, 0.91);
+            box-shadow:         0px 0px 23px 0px rgba(50, 50, 50, 0.91);
+        }
+
+        #menuburger.show{
+            opacity: 1;
+            right: 0%;
+        }
+
+
+
+        #menublock{
+            margin:10px 20px;
+            width: 250px;
+            text-align: left;
+        }
+        #menuburger a{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            line-height: 50px;
+            transition: 1s;
+            
+        }
+
+        #bottombox{
+            overflow: hidden;
+            position: absolute;
+            z-index: 0;
+            z-index: 0;
+            bottom: 0%;
+            width: 100%;
+            /* background: black; */
+        }
+
+        #panoramamenu{
+            padding: 10px 0;
+            text-align: center;
+            background: rgba(189, 27, 32, 0.596);
+            width: 100%;
+            height: 100%;
+        }
+        #panoramamenu .panolink img{
+            width: 120px;
+            height: 60px;
+        }
+
+        #panoramamenu .panolink img:hover{
+            border: solid 2px white
+        }
+
+        #panoramamenu .panolink{
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        #panosection{
+            height: 100vh;
+        }
+        #panocontainer{
+            height: 100%;
+            width: 100%;
+        }
+        .panomenu img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 30px;
+        }
+
+        #navbtn{
+            text-align: center;
+            margin-bottom: 10px;
+            /* background: black; */
+        }
+        .iconmenu{
+            background: rgba(24, 24, 24, 0.589);
+            padding: 8px;
+            display: inline-block;
+        }
+        .panomenu{
+            position: relative;
+            height: 40px;
+            width: 40px;
+            overflow: hidden;
+            display: inline-block;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="navbar">
+    <div id="burger" class="container" tabindex="0" onclick="myFunction(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+    </div>
+    <div id="mapmenu" tabindex="0">
+        <img id="mapbtn" src="../img/icon/map.svg" alt="" width="60px">
+        <div id="bigmap" class="">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 270.03 99.39"><defs><style>.cls-1{fill:none;}.cls-2{isolation:isolate;}.cls-3{clip-path:url(#clip-path);}.cls-4{fill:#a39f9f;}.cls-5{fill:#2c2c2c;}.cls-6{fill:#505050;}.cls-7{fill:#e8e8e8;}.cls-8{fill:#bf2626;}</style><clipPath id="clip-path" transform="translate(-189.64 -312.01)"><polygon class="cls-1" points="190.51 365.79 331.76 316.35 458.81 357.63 317.55 407.07 190.51 365.79"/></clipPath></defs><g id="map"><g class="cls-2"><g class="cls-3"><polyline class="cls-4" points="269.17 45.62 142.12 4.34 0.87 53.77 127.91 95.05 269.17 45.62"/></g></g><g class="cls-2"><polygon class="cls-5" points="193.56 19.8 191.18 30.24 140.09 15.01 142.47 4.57 193.56 19.8"/><polygon class="cls-5" points="256.2 38.47 253.83 48.9 198.32 32.36 200.7 21.92 256.2 38.47"/><polygon class="cls-5" points="270.03 38.15 267.65 48.59 260.95 51.02 263.33 40.59 270.03 38.15"/><polygon class="cls-5" points="200.7 21.92 198.32 32.36 129.52 57.39 131.9 46.95 200.7 21.92"/><polygon class="cls-5" points="131.9 46.95 129.52 57.39 122.38 55.27 124.76 44.83 131.9 46.95"/><polygon class="cls-5" points="142.47 4.57 140.09 15.01 13.84 60.93 16.21 50.49 142.47 4.57"/><polygon class="cls-5" points="44.5 63.36 42.13 73.8 0 61.24 2.38 50.8 44.5 63.36"/><polygon class="cls-5" points="263.33 40.59 260.95 51.02 134.71 96.95 137.08 86.51 263.33 40.59"/><polygon class="cls-5" points="123.25 86.83 120.87 97.26 42.13 73.8 44.5 63.36 123.25 86.83"/><polygon class="cls-5" points="137.08 86.51 134.71 96.95 128 99.39 130.37 88.95 137.08 86.51"/><polygon class="cls-5" points="130.37 88.95 128 99.39 120.87 97.26 123.25 86.83 130.37 88.95"/><path class="cls-6" d="M312.89,398.84l-78.75-23.47L192,362.81l6.7-2.43L325,314.45l5.65-2.05,1.06-.39,7.13,2.13,51.1,15.23L397,331.5l28.24,8.42,34.39,10.25L453,352.6,326.72,398.53,320,401Zm19.22-82.26L205.86,362.5l113.73,33.9,126.25-45.92-55.5-16.55-68.8,25-7.14-2.12,68.8-25-51.09-15.23" transform="translate(-189.64 -312.01)"/></g></g>
+                <g class="point checked" id="point1"><path class="cls-7" d="M323.57,332.49a3.85,3.85,0,1,0-5.38,3.53l2.05,7.94,1.3-8.09A3.84,3.84,0,0,0,323.57,332.49Z" transform="translate(-189.64 -312.01)"/><circle class="cls-8" cx="130.08" cy="20.31" r="3.85"/></g>
+                <g class="point" id="point2"><path class="cls-7" d="M267.91,354.89a3.85,3.85,0,1,0-5.38,3.53l2.05,7.94,1.3-8.09A3.82,3.82,0,0,0,267.91,354.89Z" transform="translate(-189.64 -312.01)"/><circle class="cls-8" cx="74.42" cy="42.71" r="3.85"/></g>
+                <g class="point" id="point3"><path class="cls-7" d="M323.57,375.38a3.85,3.85,0,1,0-5.38,3.53l2.05,7.94,1.3-8.09A3.82,3.82,0,0,0,323.57,375.38Z" transform="translate(-189.64 -312.01)"/><circle class="cls-8" cx="130.08" cy="63.2" r="3.85"/></g>
+                <g class="point" id="point4"><path class="cls-7" d="M375.83,358a3.85,3.85,0,1,0-5.39,3.52l2.05,7.94,1.31-8.09A3.84,3.84,0,0,0,375.83,358Z" transform="translate(-189.64 -312.01)"/><circle class="cls-8" cx="182.34" cy="45.8" r="3.85"/></g>
+            </svg>    
+        </div>
+    </div>
+    <div id="menuburger" class="">
+        <div id="menublock">
+            <div><a class="th" href="">กลับไปหน้าแรก</a></div>
+            <div><a class="th">แนะนำสัญลักษณ์</a></div>
+            <div><a><span class="th">ไทย</span>/<span class="en">ENG</span></a></div>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="panosection">
+    <div id="panocontainer">
+
+    </div>
+</div>
+
+
+<div id="bottombox">
+    <div id="navbtn">
+        <div class="iconmenu">
+            <div class="panomenu" id="btn1" tabindex="0"><img src="../img/plus.png" alt=""></div>
+            <div class="panomenu" id="btn2" tabindex="0"><img src="../img/minus.png" alt=""></div>
+            <div class="panomenu" id="btn3" tabindex="0"><img src="../img/arrow-up-solid.png" alt=""></div>
+            <div class="panomenu" id="btn4" tabindex="0"><img src="../img/arrow-down-solid.png" alt=""></div>
+            <div class="panomenu" id="btn5" tabindex="0"><img src="../img/arrow-left-solid.png" alt=""></div>
+            <div class="panomenu" id="btn6" tabindex="0"><img src="../img/arrow-right-solid.png" alt=""></div>
+            <div class="panomenu" id="btn7" tabindex="0"><img src="../img/home-solid.png" alt=""></div>
+            <div class="panomenu" id="btn8" tabindex="0"><img src="../img/soundon.png" alt=""></div>
+            <div class="panomenu" id="btn9" tabindex="0"><img src="../img/pause.png" alt=""></div>
+            <div class="panomenu" id="btn10" tabindex="0"><img src="../img/zoomout.png" alt=""></div>
+            <div class="panomenu" id="btn11" tabindex="0"><img src="../img/vricon.png" alt=""></div>
+            <div class="panomenu" id="btn12" tabindex="0"><img src="../img/plus.png" alt=""></div>
+        </div>
+    </div>
+    <div id="panoramamenu">
+        <div class="panolink">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg" alt="">
+        </div>
+        <div class="panolink">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg" alt="">
+        </div>
+        <div class="panolink">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg" alt="">
+        </div>
+        <div class="panolink">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg" alt="">
+        </div>
+    </div>
+</div>
+<script src="../js/three.min.js"></script>
+<script src="../js/panolens.min.js"></script>
+
+    <script>
+        var mapbtn = document.getElementById("mapbtn");
+        var bigmap = document.getElementById("bigmap");
+        var burger = document.getElementById("burger");
+        var mapmenu = document.getElementById("mapmenu");
+        var menuburger = document.getElementById("menuburger");
+        mapbtn.addEventListener("click",function(){
+            bigmap.classList.toggle("show");
+            if(mapbtn.style.opacity === "1" || mapbtn.style.opacity === ""){
+                mapbtn.style.opacity = 0.5;
+            }
+            else{
+                mapbtn.style.opacity = 1;
+            }
+        })
+
+        mapmenu.onblur = function() {
+            bigmap.classList.remove("show");
+            mapbtn.style.opacity = 1;
+        }
+
+        function myFunction(x) {
+        x.classList.toggle("change");
+        menuburger.classList.toggle("show")
+
+        }
+
+
+        // #PANOSECTION
+        var GPSicons = document.querySelectorAll("g.point");
+
+        GPSicons.forEach(function(ele, index){
+            ele.addEventListener("click",function(){
+                changeview(index+1)
+            })
+            
+        })
+
+        function mapGPS(index){
+        GPSicons.forEach(function(ele){
+            ele.classList.remove("checked");
+        })
+        GPSicons[index-1].classList.add("checked");
+        }
+
+        var panocontainer = document.getElementById("panocontainer")
+        const viewer = new PANOLENS.Viewer({container: panocontainer, output: 'console'});
+        var panorama = new PANOLENS.ImagePanorama( '../img/ROOMMOOM2.jpg' );
+        var panorama2 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM1.jpg' );
+        var panorama3 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM5.jpg' );
+        var panorama4 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM6.jpg' );
+
+
+        var infospot, infospot2;
+        infospot = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        infospot.position.set( 4949.56, -816.59, 161.78 );
+        infospot.addHoverText( 'The Where Is Bar' );
+        infospot2 = new PANOLENS.Infospot( 500, PANOLENS.DataImage.Info );
+        infospot2.position.set( -4434.87, -2281.75, 258.53 );
+
+        panorama.add( infospot );
+        panorama.add( infospot2 );
+        viewer.add( panorama );
+
+        // panorama.src = "ROOMMOOM6.jpg"
+        infospot2.addEventListener("click",function(){
+            changeview(2)
+        })
+
+        function changeview(moom){
+            if(moom == 1){
+            viewer.setPanorama(panorama)
+            viewer.add(panorama)
+            mapGPS(1)
+            }
+            else if(moom == 2){
+            viewer.setPanorama(panorama2)
+            viewer.add(panorama2)
+            mapGPS(2)
+            }
+            else if(moom == 3){
+            viewer.setPanorama(panorama3)
+            viewer.add(panorama3)
+            mapGPS(3)
+            }
+            else if(moom == 4){
+            viewer.setPanorama(panorama4)
+            viewer.add(panorama4)
+            mapGPS(4)
+            }
+        }
+
+
+
+        var spot1M2,spot2M2
+        spot1M2 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot1M2.position.set( 4844.74, -1215.75, 65.30 );
+        spot1M2.addHoverText( 'The Where Is Bar' );
+        spot2M2 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot2M2.position.set( 1978.43, -2134.83, -4054.90 );
+        spot2M2.addHoverText( 'The Where Is Bar' );
+        panorama2.add(spot1M2,spot2M2)
+        spot1M2.addEventListener("click",function(){
+            changeview(1)
+        })
+        spot2M2.addEventListener("click",function(){
+            changeview(3)
+        })
+
+        var spot1M3,spot2M3
+        spot1M3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot1M3.position.set( 171.00, -1189.70, 4846.55 );
+        spot1M3.addHoverText( 'The Where Is Bar' );
+        spot2M3 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot2M3.position.set( 4463.20, 546.30, -2164.83 );
+        spot2M3.addHoverText( 'The Where Is Bar' );
+        panorama3.add(spot1M3,spot2M3)
+        spot1M3.addEventListener("click",function(){
+            changeview(2)
+        })
+        spot2M3.addEventListener("click",function(){
+            changeview(4)
+        })
+
+        var spot1M4,spot2M4
+        spot1M4 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot1M4.position.set( -3969.77, -2049.67, -2231.88 );
+        spot1M4.addHoverText( 'The Where Is Bar' );
+        spot2M4 = new PANOLENS.Infospot( 300, PANOLENS.DataImage.Info );
+        spot2M4.position.set( -3913.90, -1764.34, 2543.92 );
+        spot2M4.addHoverText( 'The Where Is Bar' );
+        panorama4.add(spot1M4,spot2M4)
+        spot1M4.addEventListener("click",function(){
+            changeview(3)
+        })
+        spot2M4.addEventListener("click",function(){
+            changeview(2)
+        })
+
+
+        viewer.addUpdateCallback(function(){
+            console.log("EIEIEIEIEI");
+            // viewer.getControl().rotateUp(-0.01);
+
+        })
+
+
+    </script>
+
+</body>
+</html>
+
