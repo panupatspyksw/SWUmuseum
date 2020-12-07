@@ -10,6 +10,20 @@
 
     <title>Document</title>
     <style>
+            .sketchfab-embed-wrapper{
+        width:600px;
+        height: 300px;
+        background:rgb(36, 36, 36)!important;
+        display: flex;
+    }
+    .sketchfab-embed-wrapper iframe{
+        width: 300px;
+        height: 300px;
+    }
+    .sketchfab-embed-wrapper .infoo{
+        color: white;
+        padding: 5%;
+    }
         .th{
         font-family: 'Kanit', sans-serif;
         font-weight: 400;
@@ -234,6 +248,12 @@
             background: white;
             position: absolute;
         }
+        #contentbox2.infobox{
+            width: 400px;
+            background: rgba(0, 0, 0, 0.856);
+            position: absolute;
+            color: white;
+        }
         .infobox img{
             
             width: 100%;
@@ -293,7 +313,6 @@
             <div><a class="th" href="../html/index.html">กลับไปหน้าแรก</a></div>
             <div><a class="th">แนะนำสัญลักษณ์</a></div>
             <div><a><span class="th">ไทย</span>/<span class="en">ENG</span></a></div>
-
         </div>
     </div>
 </div>
@@ -304,6 +323,35 @@
 
     </div>
 </div>
+
+
+<div id="contentbox3" class="sketchfab-embed-wrapper" style="display: none;">
+    <iframe title="A 3D model"  src="https://sketchfab.com/models/ac6b3d5a124f44308b2ce1b841d3a298/embed?autostart=0&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_watermark=1&amp;ui_watermark_link=1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <div class="infoo" style="display:inline-block; position: absolute;">
+        <h4>Lorem Ipsum is simply dummy text of the printing</h4>
+        <br>
+        <p> and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essing Lorem Ipsum passages.</p>
+    </div>
+</div>
+
+<div class="infobox" id="contentbox2" style="display:none">
+    <!-- <img src="../img/big1.jpg" alt=""> -->
+    <div class="infoinside">
+        <h3 class="en">Lorem Ipsum is simply dummy</h3>
+        <!-- <div class="tab">
+            <button>Download</button>
+            <button>Screenshot</button>
+            <button>Share</button>
+        </div> -->
+        <p class="en" style="padding-top:10px;">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+  </div>
+
+  <!-- <iframe id="video" style="position: absolute; top: 0%;" width="600" height="300" src="https://www.youtube.com/embed/RKhsHGfrFmY?list=RDRKhsHGfrFmY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+  <div id="video"style="width:100%;height:0px;position:relative;padding-bottom:73.183%;"><iframe src="https://streamable.com/e/0noyns" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+
 
 <div class="infobox" id="contentbox1" style="display:none">
     <img src="../img/centerIMGMOOM1.jpg" alt="">
@@ -358,10 +406,13 @@
         </div>
     </div>
 </div>
-<script src="../js/three.min.js"></script>
-<script src="../js/panolens.min.js"></script>
-<script src="../js/CSS3DRenderer.js"></script>
-    <script>
+   <script src="../js/three.min.js"></script>
+    <script src="../js/panolens.min.js"></script>
+    <script src="../js/CSS3DRenderer.js"></script>
+
+    <script type="module">
+        let camera, scene, renderer;
+
         var mapbtn = document.getElementById("mapbtn");
         var bigmap = document.getElementById("bigmap");
         var burger = document.getElementById("burger");
@@ -409,7 +460,7 @@
         }
 
         
-
+        // 4917.05, -745.58, -490.88
 
         var panocontainer = document.getElementById("panocontainer")
         const viewer = new PANOLENS.Viewer({container: panocontainer, output: 'console',controlBar: false});
@@ -418,19 +469,26 @@
         var panorama3 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM5.jpg' );
         var panorama4 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM6.jpg' );
 
-
-        var infospot, infospot2;
+        var infospot, infospot2, infospot3, soundspot1, soundspot2;
         infospot = new PANOLENS.Infospot( 300, '../img/infoimg/infoIC.png' );
         console.log(infospot)
 
-        infospot.position.set( 4949.56, -816.59, 161.78 );
+        infospot.position.set( 4868.14, -764.78, 802.44 );
         infospot.addHoverElement( document.getElementById( 'contentbox1' ), 300 );
         infospot2 = new PANOLENS.Infospot( 500, '../img/Mup.png' );
         infospot2.position.set( -4434.87, -2281.75, 258.53 );
-        
-
+        infospot3 = new PANOLENS.Infospot( 500, '../img/infoimg/infoIC2.png' );
+        infospot3.position.set( -287.78, -816.92, 4916.45 );
+        infospot3.addHoverElement( document.getElementById( 'contentbox2' ),300 );
+        soundspot1 = new PANOLENS.Infospot( 350, '../img/icon/heaphone.png');
+        soundspot1.position.set( 4917.05, -770.58, -550.88 );
+        soundspot1.addEventListener("click",function(){
+            alert("yooyo")
+        })
+        panorama.add( soundspot1 );
         panorama.add( infospot );
         panorama.add( infospot2 );
+        panorama.add( infospot3 );
         viewer.add( panorama );
 
         // panorama.src = "ROOMMOOM6.jpg"
@@ -482,12 +540,17 @@
             changeview(3)
         })
 
-        var spot1M3,spot2M3
+        var spot1M3,spot2M3,spot3M3
         spot1M3 = new PANOLENS.Infospot( 300, '../img/Mup3.png' );
         spot1M3.position.set( 171.00, -1189.70, 4846.55 );
         spot2M3 = new PANOLENS.Infospot( 300, '../img/Mleft.png' );
         spot2M3.position.set( 4463.20, 546.30, -2164.83 );
-        panorama3.add(spot1M3,spot2M3)
+        spot3M3 = new PANOLENS.Infospot( 300, '../img/infoimg/3DIC.png' );
+        spot3M3.position.set( 1556.20, -1563.40, -4482.02 );
+        spot3M3.addHoverElement( document.getElementById( 'contentbox3' ),200 );
+        // spot2M3 = new PANOLENS.Infospot( 300, '../img/Mleft.png' );
+        // spot2M3.position.set( 4463.20, 546.30, -2164.83 );
+        panorama3.add(spot1M3,spot2M3,spot3M3)
         spot1M3.addEventListener("click",function(){
             changeview(2)
         })
@@ -513,6 +576,7 @@
         // #controls_panomenu
         viewer.camera.position.set(0.9959545915187218,0.08376295032060595,0.032530290290184755);
         viewer.OrbitControls.autoRotate = true;
+        viewer.OrbitControls.autoRotateSpeed = 0.3;
         var lvlbtn = document.getElementById("pbtn13");
         var zoomin = document.getElementById("pbtn1");
         var zoomout = document.getElementById("pbtn2");
@@ -722,6 +786,103 @@
             })
             
         })
+
+// #videoto3D
+
+
+// let controls;
+
+// function Element( id, x, y, z, rx ,ry ,rz) {
+
+//     const div = document.createElement( 'div' );
+//     div.style.width = '1850px';
+//     div.style.height = '680px';
+//     div.style.background = "transparent";
+//     div.style.cursor = "pointer";
+//     div.style.pointerEvents = "none";
+//     const iframe = document.getElementById("video")
+//     // iframe.addEventListener("mouseover",function(){
+//     //     alert("HEYYYYYYYYYYY");
+//     // })
+//     iframe.style.width = '2000px';
+//     iframe.style.height = '650px';
+//     // iframe.style.border = '0px';
+//     iframe.style.cursor = "pointer";
+//     // iframe.src ='https://streamable.com/b01yv1';
+//     iframe.style.pointerEvents = "auto";
+//     div.appendChild( iframe );
+
+//     const object = new THREE.CSS3DObject( div );
+//     object.position.set( x, y, z );
+//     object.rotation.set( rx, ry, rz)
+    
+//     return object;
+
+// };
+
+// init();
+
+// function init() {
+
+//     const container = document.querySelector( '#panocontainer' );
+//     camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 5000 );
+//     camera.position.set( 0, 0, 750 );
+
+//     scene = new THREE.Scene();
+//     // renderer =viewer.getRenderer)
+
+//     renderer = new THREE.CSS3DRenderer();
+//     renderer.setSize( window.innerWidth, window.innerHeight );
+//     renderer.domElement.style.position = 'absolute';
+//     renderer.domElement.style.top = 0;
+//     renderer.domElement.style.backgroundColor = 'transparent';
+//     renderer.domElement.style.zIndex = 0;
+//     // renderer.domElement.style.pointerEvents = "none"
+//     console.log(renderer)
+//     container.appendChild( renderer.domElement );
+
+
+//     var video = new Element( 'SJOz3qjfQXU', -3080, -600, -4900, 0, -100.5 ,0 ) ;
+
+//     console.log("helloworld")
+//     console.log(video)
+//     scene.add( video );
+    
+//     viewer.add(panorama)
+
+// }
+
+
+
+
+// animate()
+
+// function animate() {
+// requestAnimationFrame( animate );
+// renderer.render( scene, viewer.getCamera() );
+
+// viewer.camera.updateProjectionMatrix();
+
+
+
+// }
+
+
+
+
+
+
+// window.addEventListener( 'resize', onWindowResize, false );
+
+// function onWindowResize() {
+
+// camera.aspect = window.innerWidth / window.innerHeight;
+// camera.updateProjectionMatrix();
+// renderer.setSize( window.innerWidth, window.innerHeight );
+
+// }
+
+
 
     </script>
 
