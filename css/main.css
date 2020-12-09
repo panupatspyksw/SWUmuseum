@@ -37,11 +37,15 @@
 }
 
 .post_menu{
+    font-family: 'Kanit', sans-serif;
+
     padding: 5%;
     text-align: center;
 }
 
 .card{
+    font-family: 'Kanit', sans-serif;
+
     margin: 2%;
     display: inline-block;
     width: 45%;
@@ -77,6 +81,8 @@
 
 }
 .card .des{
+    font-family: 'Kanit', sans-serif;
+
     position: relative;
     display: block;
     height: 0;
@@ -104,6 +110,7 @@
 .paragraph{
     color: white;
     text-indent: 50px;
+    font-family: 'Kanit', sans-serif;
 
 }
 
@@ -123,6 +130,7 @@
 }
 
 .post_model .card{
+    outline: none;
     cursor: pointer;
     width: 370px;
     height: 370px;
@@ -143,12 +151,16 @@ padding: 0%;
 }
 
 .content_post{
+    font-family: 'Kanit', sans-serif;
+
     position: fixed;
     top: -5%;
 }
 
 .content_post .insidebox{
     padding: 5%;
+    font-family: 'Kanit', sans-serif;
+
 }
 
 .content_post .insidebox .content-box{
@@ -156,11 +168,13 @@ padding: 0%;
 }
 
 .content_post .insidebox .titlee{
-    font-size: 50px;
-    line-height: 40px;
+    font-size: 30px;
+    line-height: 30px;
     margin-bottom: 30px;
 }
 .content_post .insidebox .des{
+    font-family: 'Kanit', sans-serif;
+
     font-size: 20px;
     text-indent: 50px;
 

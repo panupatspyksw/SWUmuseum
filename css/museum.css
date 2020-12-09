@@ -1,0 +1,360 @@
+
+
+
+
+            .sketchfab-embed-wrapper{
+                width:600px;
+                height: 300px;
+                background:rgb(36, 36, 36)!important;
+                display: flex;
+            }
+            .sketchfab-embed-wrapper iframe{
+                width: 300px;
+                height: 300px;
+            }
+            .sketchfab-embed-wrapper .infoo{
+                color: white;
+                padding: 5%;
+            }
+                .th{
+                font-family: 'Kanit', sans-serif;
+                font-weight: 400;
+                }
+                .en{
+                    font-family: 'Kanit', sans-serif;
+                }
+                body{
+                    overflow: hidden;
+                }
+                *{
+                    padding: 0%;
+                    margin: 0%;
+                    box-sizing: border-box;
+                }
+        
+                div:focus{
+                    outline: none;
+                }
+        
+                .container {
+                display: inline-block;
+                cursor: pointer;
+                }
+        
+                .navbar{
+                    position: fixed;
+                    top: 2%;
+                    right: 2%;
+                    z-index: 1998;
+                    text-align: right;
+                }
+        
+                .bar1, .bar2, .bar3 {
+                width: 35px;
+                height: 5px;
+                background-color: #333;
+                margin: 6px 0;
+                transition: 0.4s;
+                }
+        
+                .change .bar1, .change .bar2, .change .bar3 {
+        
+                background-color: white;
+        
+                }
+        
+                .change .bar1 {
+                -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+                transform: rotate(-45deg) translate(-9px, 6px);
+                }
+        
+                .change .bar2 {opacity: 0;}
+        
+                .change .bar3 {
+                -webkit-transform: rotate(45deg) translate(-8px, -8px);
+                transform: rotate(45deg) translate(-8px, -8px);
+                }
+        
+                #bigmap{
+                    pointer-events: none;
+                    position: absolute;
+                    top: 70%;
+                    right: 30%;
+                    width: 500px;
+                    transition: .5s;
+                    visibility: hidden;
+                    opacity: 0;
+                    transform: scale(0);
+                    transform-origin: top right;
+                }
+        
+                #bigmap.show{
+                    visibility: visible;
+                    opacity: 1;
+                    transform: scale(1);
+                }
+        
+        
+                g.point{
+                    pointer-events: visible;
+                    cursor: pointer;
+                    transition: .3s all;
+        
+                }
+                g.point:hover{
+                    opacity: 0.5;
+        
+                }
+        
+                g.point.checked{
+                    animation: example .4s ease-in .5s infinite alternate;
+        
+                }
+        
+                #mapbtn{
+                    cursor: pointer;
+                    transition: .5s;
+                }
+        
+                @keyframes example {
+                from {transform: translateY(0%);}
+                to {transform: translateY(5%);}
+                }
+        
+                #burger{
+                    z-index: 2000;
+                    margin-right: 0px;
+                    margin-bottom: 10px;
+                    position: relative;
+                }
+                #menuburger{
+                    z-index: 1999;
+                    opacity: 0;
+                    position: fixed;
+                    top: 0%;
+                    right: -300px;
+                    height: 100vh;
+                    width: 300px;
+                    background: black;
+                    color: white;
+                    transition: .4s;
+                    -webkit-box-shadow: 0px 0px 23px 0px rgba(50, 50, 50, 0.91);
+                    -moz-box-shadow:    0px 0px 23px 0px rgba(50, 50, 50, 0.91);
+                    box-shadow:         0px 0px 23px 0px rgba(50, 50, 50, 0.91);
+                }
+        
+                #menuburger.show{
+                    opacity: 1;
+                    right: 0%;
+                }
+        
+        
+        
+                #menublock{
+                    margin:10px 20px;
+                    width: 250px;
+                    text-align: left;
+                }
+                #menuburger a{
+                    text-decoration: none;
+                    color: white;
+                    font-size: 20px;
+                    line-height: 50px;
+                    transition: 1s;
+                    
+                }
+        
+                #bottombox{
+                    /* overflow: hidden; */
+                    position: absolute;
+                    z-index: 0;
+                    z-index: 0;
+                    bottom: 0%;
+                    width: 100%;
+                    /* background: black; */
+                }
+        
+                #panoramamenu{
+                    padding: 10px 0;
+                    text-align: center;
+                    background: rgba(156, 14, 19, 0.801);
+                    width: 100%;
+                    height: 100%;
+                }
+                #panoramamenu .panolink img{
+                    width: 120px;
+                    height: 60px;
+                    -webkit-box-shadow: inset 1px 1px 30px 0px rgba(0, 0, 0, 1);
+                    -moz-box-shadow:    inset 1px 1px 30px 0px rgba(0, 0, 0, 1);
+                    box-shadow:         inset 1px 1px 30px 0px rgba(0, 0, 0, 1);
+                }
+        
+                #panoramamenu .panolink.checked{
+                    border: solid 5px rgba(0, 0, 0, 0.432);
+                }
+        
+                #panoramamenu .panolink{
+                    cursor: pointer;
+                    overflow: hidden;
+                    height: 60px;
+                    display: inline-block;
+                    margin: 0 5px;
+                }
+        
+                #panosection{
+                    height: 100vh;
+                }
+                #panocontainer{
+                    height: 100%;
+                    width: 100%;
+                }
+                .panomenu img{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    width: 30px;
+                }
+        
+        html,.th{
+            font-family: 'Kanit', sans-serif;
+        
+        }
+        
+                #navbtn{
+                    text-align: center;
+                    margin-bottom: 10px;
+                    /* background: black; */
+                }
+                .iconmenu{
+                    background: rgba(24, 24, 24, 0.589);
+                    padding: 8px;
+                    display: inline-block;
+                }
+                .panomenu{
+                    position: relative;
+                    height: 40px;
+                    width: 40px;
+                    /* overflow: hidden; */
+                    display: inline-block;
+                    cursor: pointer;
+                }
+        
+                .infobox{
+                    width: 400px;
+                    background: white;
+                    position: absolute;
+                }
+                #contentbox2.infobox{
+                    width: 400px;
+                    background: rgb(255, 255, 255);
+                    position: absolute;
+                    color: rgb(0, 0, 0);
+                }
+                .infobox img{
+                    
+                    width: 100%;
+                    height: 200px;
+                }
+                .infoinside{
+                    padding: 10px;
+                }
+                .infobox h3{
+                margin-bottom: 7px;
+                }
+                .infobox .tab{
+                    display: flex;
+                }
+                .infobox .tab button{
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 500;
+                    color: rgb(219, 28, 28);
+                    width: 100px;
+                    height: 40px;
+                    border: solid 1px rgb(209, 209, 209);
+                    margin-right: 5px;
+                    border-radius: 5px;
+                    background: none;
+                    cursor: pointer;
+                }
+                .classlvl{
+                    height: 50px;
+                    line-height: 50px;
+                }
+                .iconinfo{
+                    text-align: center;
+                    padding: 20px;
+                    background: white;
+                    width: 1000px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    z-index: 100000;
+                    transform: translate(-50%,-50%) scale(1);
+                    pointer-events: fill ;
+                    opacity: 1;
+                    transition: 1s all;
+                    display: block;
+                    animation: 1s example2;
+                }
+                @keyframes example2 {
+                from {opacity: 0;}
+                to {opacity: 1;}
+                }
+        
+        
+                .iconinfo button{
+                    font-family: 'Kanit', sans-serif;
+                    font-weight: 400;
+                    font-size: 20px;
+                    margin-top: 20px;
+                    border: none;
+                    outline: none;
+                    width: 200px;
+                    line-height: 40px;
+                    color: white;
+                    background: black;
+                    transition: .5s;
+                    cursor: pointer;
+                }
+                .iconinfo button:hover{
+                    opacity: 0.8;
+                }
+                .hide{
+                    pointer-events: none;
+                    opacity: 0;
+                    transform: translate(-50%,-50%) scale(0);
+                    transition: 1s all;
+                }
+        
+                .centerxy{
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                }
+        
+        
+                .endtext{
+                    font-family: 'Kanit', sans-serif;
+                font-size: 50px;
+                opacity: 0;
+                }
+        
+                .pagetransition{
+                    font-family: 'Kanit', sans-serif;
+        
+                    z-index: 200000;
+                background-color: white;
+                position: fixed;
+                top: 0%;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                display: block;
+                }
+        
+        
+        }

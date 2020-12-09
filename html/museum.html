@@ -4,295 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
     <title>Document</title>
+    <link rel="stylesheet" href="../css/museum.css">
     <style>
-            .sketchfab-embed-wrapper{
-        width:600px;
-        height: 300px;
-        background:rgb(36, 36, 36)!important;
-        display: flex;
-    }
-    .sketchfab-embed-wrapper iframe{
-        width: 300px;
-        height: 300px;
-    }
-    .sketchfab-embed-wrapper .infoo{
-        color: white;
-        padding: 5%;
-    }
-        .th{
-        font-family: 'Kanit', sans-serif;
-        font-weight: 400;
-        }
-        .en{
-            font-family: 'Roboto', sans-serif;
-        }
-        body{
-            overflow: hidden;
-        }
-        *{
-            padding: 0%;
-            margin: 0%;
-            box-sizing: border-box;
-        }
-
-        div:focus{
-            outline: none;
-        }
-
-        .container {
-        display: inline-block;
-        cursor: pointer;
-        }
-
-        .navbar{
-            position: fixed;
-            top: 2%;
-            right: 2%;
-            z-index: 1998;
-            text-align: right;
-        }
-
-        .bar1, .bar2, .bar3 {
-        width: 35px;
-        height: 5px;
-        background-color: #333;
-        margin: 6px 0;
-        transition: 0.4s;
-        }
-
-        .change .bar1, .change .bar2, .change .bar3 {
-
-        background-color: white;
-
-        }
-
-        .change .bar1 {
-        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-        transform: rotate(-45deg) translate(-9px, 6px);
-        }
-
-        .change .bar2 {opacity: 0;}
-
-        .change .bar3 {
-        -webkit-transform: rotate(45deg) translate(-8px, -8px);
-        transform: rotate(45deg) translate(-8px, -8px);
-        }
-
-        #bigmap{
-            pointer-events: none;
-            position: absolute;
-            top: 70%;
-            right: 30%;
-            width: 500px;
-            transition: .5s;
-            visibility: hidden;
-            opacity: 0;
-            transform: scale(0);
-            transform-origin: top right;
-        }
-
-        #bigmap.show{
-            visibility: visible;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-
-        g.point{
-            pointer-events: visible;
-            cursor: pointer;
-            transition: .3s all;
-
-        }
-        g.point:hover{
-            opacity: 0.5;
-
-        }
-
-        g.point.checked{
-            animation: example .4s ease-in .5s infinite alternate;
-
-        }
-
-        #mapbtn{
-            cursor: pointer;
-            transition: .5s;
-        }
-
-        @keyframes example {
-        from {transform: translateY(0%);}
-        to {transform: translateY(5%);}
-        }
-
-        #burger{
-            margin-right: 0px;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2000;
-        }
-        #menuburger{
-            z-index: 1999;
-            opacity: 0;
-            position: fixed;
-            top: 0%;
-            right: -300px;
-            height: 100vh;
-            width: 300px;
-            background: black;
-            color: white;
-            transition: .4s;
-            -webkit-box-shadow: 0px 0px 23px 0px rgba(50, 50, 50, 0.91);
-            -moz-box-shadow:    0px 0px 23px 0px rgba(50, 50, 50, 0.91);
-            box-shadow:         0px 0px 23px 0px rgba(50, 50, 50, 0.91);
-        }
-
-        #menuburger.show{
-            opacity: 1;
-            right: 0%;
-        }
-
-
-
-        #menublock{
-            margin:10px 20px;
-            width: 250px;
-            text-align: left;
-        }
-        #menuburger a{
-            text-decoration: none;
-            color: white;
-            font-size: 20px;
-            line-height: 50px;
-            transition: 1s;
-            
-        }
-
-        #bottombox{
-            /* overflow: hidden; */
-            position: absolute;
-            z-index: 0;
-            z-index: 0;
-            bottom: 0%;
-            width: 100%;
-            /* background: black; */
-        }
-
-        #panoramamenu{
-            padding: 10px 0;
-            text-align: center;
-            background: rgba(156, 14, 19, 0.801);
-            width: 100%;
-            height: 100%;
-        }
-        #panoramamenu .panolink img{
-            width: 120px;
-            height: 60px;
-            -webkit-box-shadow: inset 1px 1px 30px 0px rgba(0, 0, 0, 1);
-            -moz-box-shadow:    inset 1px 1px 30px 0px rgba(0, 0, 0, 1);
-            box-shadow:         inset 1px 1px 30px 0px rgba(0, 0, 0, 1);
-        }
-
-        #panoramamenu .panolink.checked{
-            border: solid 5px rgba(0, 0, 0, 0.432);
-        }
-
-        #panoramamenu .panolink{
-            cursor: pointer;
-            overflow: hidden;
-            height: 60px;
-            display: inline-block;
-            margin: 0 5px;
-        }
-
-        #panosection{
-            height: 100vh;
-        }
-        #panocontainer{
-            height: 100%;
-            width: 100%;
-        }
-        .panomenu img{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            width: 30px;
-        }
-
-        #navbtn{
-            text-align: center;
-            margin-bottom: 10px;
-            /* background: black; */
-        }
-        .iconmenu{
-            background: rgba(24, 24, 24, 0.589);
-            padding: 8px;
-            display: inline-block;
-        }
-        .panomenu{
-            position: relative;
-            height: 40px;
-            width: 40px;
-            /* overflow: hidden; */
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        .infobox{
-            width: 400px;
-            background: white;
-            position: absolute;
-        }
-        #contentbox2.infobox{
-            width: 400px;
-            background: rgba(0, 0, 0, 0.856);
-            position: absolute;
-            color: white;
-        }
-        .infobox img{
-            
-            width: 100%;
-            height: 200px;
-        }
-        .infoinside{
-            padding: 10px;
-        }
-        .infobox h3{
-        margin-bottom: 7px;
-        }
-        .infobox .tab{
-            display: flex;
-        }
-        .infobox .tab button{
-            font-family: 'Roboto', sans-serif;
-            font-weight: 500;
-            color: rgb(219, 28, 28);
-            width: 100px;
-            height: 40px;
-            border: solid 1px rgb(209, 209, 209);
-            margin-right: 5px;
-            border-radius: 5px;
-            background: none;
-            cursor: pointer;
-        }
-        .classlvl{
-            height: 50px;
-            line-height: 50px;
-        }
 
     </style>
 </head>
 <body>
-
-
+<div class="pagetransition">
+    <div class="centerxy">
+    <div class="endtext centerxy th load">ยินดีต้อนรับเข้าสู่<br>พิพิธภัณฑ์เสมือนจริง</div>
+    </div>
+</div>
+<div class="iconinfo " id="iconinfo">
+<img src="../img/icon/iconinfo.png"  height="500px" alt="">
+<div><button onclick="iconinfo()">เริ่มต้นใช้งาน</button></div>
+</div>
 
 <div class="navbar">
-    <div id="burger" class="container" tabindex="0" onclick="myFunction(this)">
+    <div id="burger" class="container" tabindex="0" onclick="myFunction(this)" onblur="onblurburger(this)">
     <div class="bar1"></div>
     <div class="bar2"></div>
     <div class="bar3"></div>
@@ -311,8 +45,10 @@
     <div id="menuburger" class="">
         <div id="menublock">
             <div><a class="th" href="../html/index.html">กลับไปหน้าแรก</a></div>
-            <div><a class="th">แนะนำสัญลักษณ์</a></div>
+            <div><a onclick="iconinfo()" style="cursor: pointer; outline: none;" tabindex="0" class="th">แนะนำสัญลักษณ์</a></div>
             <div><a><span class="th">ไทย</span>/<span class="en">ENG</span></a></div>
+            <div><a>คำถามที่พบบ่อย <i class="fas fa-question-circle"></i></a></div>
+
         </div>
     </div>
 </div>
@@ -328,42 +64,48 @@
 <div id="contentbox3" class="sketchfab-embed-wrapper" style="display: none;">
     <iframe title="A 3D model"  src="https://sketchfab.com/models/ac6b3d5a124f44308b2ce1b841d3a298/embed?autostart=0&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_watermark=1&amp;ui_watermark_link=1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     <div class="infoo" style="display:inline-block; position: absolute;">
-        <h4>Lorem Ipsum is simply dummy text of the printing</h4>
+        <h4>อาคารวิจัยและการศึกษาต่อเนื่องสมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี”</h4>
         <br>
-        <p> and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essing Lorem Ipsum passages.</p>
+        <p> 
+            สร้างเสร็จและเปิดใช้งานเมื่อปี 2539 ในวโรกาสที่สมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี เจริญพระชนมายุครบ 3 ขวบ ใช้เป็นสถานที่จัดประชุมทางวิชาการระดับชาติและนานาชาติ
+        </p>
     </div>
 </div>
 
 <div class="infobox" id="contentbox2" style="display:none">
-    <!-- <img src="../img/big1.jpg" alt=""> -->
+    <img src="../img/p1.jpg" alt="">
     <div class="infoinside">
-        <h3 class="en">Lorem Ipsum is simply dummy</h3>
+        <h3 class="en">รองศาสตราจารย์ คุณหญิง ดร.สุมณฑา พรหมบุญ อธิการบดี มหาวิทยาลัยศรีนครินทรวิโรฒ</h3>
         <!-- <div class="tab">
             <button>Download</button>
             <button>Screenshot</button>
             <button>Share</button>
         </div> -->
         <p class="en" style="padding-top:10px;">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            เข้าเฝ้าทูลละอองพระบาทสมเด็จพระเจ้าพี่นางเธอ เจ้าฟ้ากัลยาณิวัฒนา กรมหลวงนราธิวาสราชนครินทร์ กราบบังคมทูลรายงานการสร้างพระราชานุสาวรีย์สมเด็จพระศรีนครินทรทราบรมราชชนนี<br>
+            เมื่อวันที่ 25 ตุลาคาม พ.ศ. 2544 ณ พระดำหนักเลอดิส
         </p>
     </div>
   </div>
 
   <!-- <iframe id="video" style="position: absolute; top: 0%;" width="600" height="300" src="https://www.youtube.com/embed/RKhsHGfrFmY?list=RDRKhsHGfrFmY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-  <div id="video"style="width:100%;height:0px;position:relative;padding-bottom:73.183%;"><iframe src="https://streamable.com/e/0noyns" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+  <div id="video"style="width:100%;height:0px;position:relative;padding-bottom:73.183%;"><iframe volume="0" id="videoplayer"src="https://streamable.com/e/0noyns" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
 
 
 <div class="infobox" id="contentbox1" style="display:none">
     <img src="../img/centerIMGMOOM1.jpg" alt="">
     <div class="infoinside">
-        <h3 class="en">Lorem Ipsum is simply dummy</h3>
+        <h3 class="en">พิธีพระราชทานปริญญาบัตร “ปฐมวาระ”</h3>
         <div class="tab">
             <button>Download</button>
             <button>Screenshot</button>
             <button>Share</button>
         </div>
         <p class="en" style="padding-top:10px;">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            พุทธศักราช 2502 นับเป็น “ปฐมวาระ” อันสำคัญยิ่งที่พระบาทสมเด็จพระเจ้าอยู่หัวพระปรมินทรมหาภูมิพลอ
+            ดุลยเดช และสมเด็จพระนางเจ้าสิริกิติ์ พระบรมราชินีนาถ ทรงมีพระมหากรุณาธิคุณเสด็จพระราชดำเนิน
+            พระราชทานปริญญาบัตรแก่ผู้ส าเร็จการศึกษาของวิทยาลัยวิชาการศึกษา<br>เมื่อวันที่ 29 ธันวาคม พ.ศ. 2502
+            ณ วิทยาลัยวิชาการศึกษา ถนนประสานมิตร
         </p>
     </div>
   </div>
@@ -406,486 +148,44 @@
         </div>
     </div>
 </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+ <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CustomEase.min.js"></script>
+    <script src="../js/animationload.js"></script>
    <script src="../js/three.min.js"></script>
     <script src="../js/panolens.min.js"></script>
     <script src="../js/CSS3DRenderer.js"></script>
-
-    <script type="module">
-        let camera, scene, renderer;
-
-        var mapbtn = document.getElementById("mapbtn");
-        var bigmap = document.getElementById("bigmap");
-        var burger = document.getElementById("burger");
-        var mapmenu = document.getElementById("mapmenu");
-        var menuburger = document.getElementById("menuburger");
-        mapbtn.addEventListener("click",function(){
-            bigmap.classList.toggle("show");
-            if(mapbtn.style.opacity === "1" || mapbtn.style.opacity === ""){
-                mapbtn.style.opacity = 0.5;
-            }
-            else{
-                mapbtn.style.opacity = 1;
-            }
-        })
-
-        mapmenu.onblur = function() {
-            bigmap.classList.remove("show");
-            mapbtn.style.opacity = 1;
-        }
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+    <script src="../js/museum.js"></script>
+    <script>
+        // browser.style.display = "none";
+    </script>
+    <script>
         function myFunction(x) {
-        x.classList.toggle("change");
-        menuburger.classList.toggle("show")
+            // var browser = document.getElementById('videoplayer');
+            // browser.src = browser.src;
 
+    x.classList.toggle("change");
+    menuburger.classList.toggle("show")
+    }
+
+    function onblurburger(x) {
+    x.classList.remove("change");
+    menuburger.classList.remove("show")
+    }
+
+    function iconinfo(){
+        var iconinfo = document.getElementById("iconinfo")
+        if(iconinfo.classList.contains("hide")){
+            iconinfo.classList.remove("hide")
         }
-
-
-        // #PANOSECTION
-        var GPSicons = document.querySelectorAll("g.point");
-        var pano = document.querySelectorAll(".panolink")
-
-        GPSicons.forEach(function(ele, index){
-            ele.addEventListener("click",function(){
-                changeview(index+1)
-            })
-            
-        })
-
-        function mapGPS(index){
-        GPSicons.forEach(function(ele){
-            ele.classList.remove("checked");
-        })
-
-        GPSicons[index-1].classList.add("checked");
+        else{
+            iconinfo.classList.add("hide")
         }
-
-        
-        // 4917.05, -745.58, -490.88
-
-        var panocontainer = document.getElementById("panocontainer")
-        const viewer = new PANOLENS.Viewer({container: panocontainer, output: 'console',controlBar: false});
-        var panorama = new PANOLENS.ImagePanorama( '../img/ROOMMOOM2.jpg' );
-        var panorama2 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM1.jpg' );
-        var panorama3 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM5.jpg' );
-        var panorama4 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM6.jpg' );
-
-        var infospot, infospot2, infospot3, soundspot1, soundspot2;
-        infospot = new PANOLENS.Infospot( 300, '../img/infoimg/infoIC.png' );
-        console.log(infospot)
-
-        infospot.position.set( 4868.14, -764.78, 802.44 );
-        infospot.addHoverElement( document.getElementById( 'contentbox1' ), 300 );
-        infospot2 = new PANOLENS.Infospot( 500, '../img/Mup.png' );
-        infospot2.position.set( -4434.87, -2281.75, 258.53 );
-        infospot3 = new PANOLENS.Infospot( 500, '../img/infoimg/infoIC2.png' );
-        infospot3.position.set( -287.78, -816.92, 4916.45 );
-        infospot3.addHoverElement( document.getElementById( 'contentbox2' ),300 );
-        soundspot1 = new PANOLENS.Infospot( 350, '../img/icon/heaphone.png');
-        soundspot1.position.set( 4917.05, -770.58, -550.88 );
-        soundspot1.addEventListener("click",function(){
-            alert("yooyo")
-        })
-        panorama.add( soundspot1 );
-        panorama.add( infospot );
-        panorama.add( infospot2 );
-        panorama.add( infospot3 );
-        viewer.add( panorama );
-
-        // panorama.src = "ROOMMOOM6.jpg"
-        infospot2.addEventListener("click",function(){
-            changeview(2)
-        })
-
-        function changeview(moom){
-            if(moom == 1){
-            viewer.setPanorama(panorama)
-            viewer.add(panorama)
-            mapGPS(1)
-            panocheck(1)
-            }
-            else if(moom == 2){
-            viewer.setPanorama(panorama2)
-            viewer.add(panorama2)
-            mapGPS(2)
-            panocheck(2)
-            }
-            else if(moom == 3){
-            viewer.setPanorama(panorama3)
-            viewer.add(panorama3)
-            mapGPS(3)
-            panocheck(3)
-
-            }
-            else if(moom == 4){
-            viewer.setPanorama(panorama4)
-            viewer.add(panorama4)
-            mapGPS(4)
-            panocheck(4)
-
-            }
-        }
-
-
-
-        var spot1M2,spot2M2
-        spot1M2 = new PANOLENS.Infospot( 300, '../img/Mup2.png' );
-        spot1M2.position.set( 4844.74, -1215.75, 65.30 );
-        spot2M2 = new PANOLENS.Infospot( 300, '../img/Mrightup.png' );
-        spot2M2.position.set( 1978.43, -2134.83, -4054.90 );
-        panorama2.add(spot1M2,spot2M2)
-        spot1M2.addEventListener("click",function(){
-            changeview(1)
-        })
-        spot2M2.addEventListener("click",function(){
-            changeview(3)
-        })
-
-        var spot1M3,spot2M3,spot3M3
-        spot1M3 = new PANOLENS.Infospot( 300, '../img/Mup3.png' );
-        spot1M3.position.set( 171.00, -1189.70, 4846.55 );
-        spot2M3 = new PANOLENS.Infospot( 300, '../img/Mleft.png' );
-        spot2M3.position.set( 4463.20, 546.30, -2164.83 );
-        spot3M3 = new PANOLENS.Infospot( 300, '../img/infoimg/3DIC.png' );
-        spot3M3.position.set( 1556.20, -1563.40, -4482.02 );
-        spot3M3.addHoverElement( document.getElementById( 'contentbox3' ),200 );
-        // spot2M3 = new PANOLENS.Infospot( 300, '../img/Mleft.png' );
-        // spot2M3.position.set( 4463.20, 546.30, -2164.83 );
-        panorama3.add(spot1M3,spot2M3,spot3M3)
-        spot1M3.addEventListener("click",function(){
-            changeview(2)
-        })
-        spot2M3.addEventListener("click",function(){
-            changeview(4)
-        })
-
-        var spot1M4,spot2M4
-        spot1M4 = new PANOLENS.Infospot( 300, '../img/Mup5.png' );
-        spot1M4.position.set( -3969.77, -2049.67, -2231.88 );
-        spot2M4 = new PANOLENS.Infospot( 300, '../img/Mrightup2.png' );
-        spot2M4.position.set( -3913.90, -1764.34, 2543.92 );
-        panorama4.add(spot1M4,spot2M4)
-        spot1M4.addEventListener("click",function(){
-            changeview(3)
-        })
-        spot2M4.addEventListener("click",function(){
-            changeview(2)
-        })
-
-
-
-        // #controls_panomenu
-        viewer.camera.position.set(0.9959545915187218,0.08376295032060595,0.032530290290184755);
-        viewer.OrbitControls.autoRotate = true;
-        viewer.OrbitControls.autoRotateSpeed = 0.3;
-        var lvlbtn = document.getElementById("pbtn13");
-        var zoomin = document.getElementById("pbtn1");
-        var zoomout = document.getElementById("pbtn2");
-        var rotateup = document.getElementById("pbtn3");
-        var rotatedown = document.getElementById("pbtn4");
-        var rotateleft = document.getElementById("pbtn5");
-        var rotateright = document.getElementById("pbtn6");
-        var homebtn = document.getElementById("pbtn7");
-        var sound = document.getElementById("pbtn8");
-        var autorotate = document.getElementById("pbtn9");
-        var fullscreen = document.getElementById("pbtn10");
-        var vr = document.getElementById("pbtn11");
-        var hidden = document.getElementById("pbtn12");
-        var zoomN = false;
-        var zoomO = false;
-        var rotateU = false, rotateD = false, rotateL = false, rotateR = false;
-        zoomin.addEventListener("mousedown",function(){
-            zoomN = true;
-        })
-        zoomin.addEventListener("mouseup",function(){
-            zoomN = false;
-        })
-        zoomin.addEventListener("blur",function(){
-            zoomN = false;
-        })
-
-        zoomout.addEventListener("mousedown",function(){
-            zoomO = true;
-        })
-        zoomout.addEventListener("mouseup",function(){
-            zoomO = false;
-        })
-        zoomout.addEventListener("blur",function(){
-            zoomO = false;
-        })
-
-        rotateup.addEventListener("mousedown",function(){
-            rotateU = true;
-        })
-        rotateup.addEventListener("mouseup",function(){
-            rotateU = false;
-        })
-        rotateup.addEventListener("blur",function(){
-            rotateU = false;
-        })
-        
-        rotatedown.addEventListener("mousedown",function(){
-            rotateD = true;
-        })
-        rotatedown.addEventListener("mouseup",function(){
-            rotateD = false;
-        })
-        rotatedown.addEventListener("blur",function(){
-            rotateD = false;
-        })
-
-        rotateleft.addEventListener("mousedown",function(){
-            rotateL = true;
-        })
-        rotateleft.addEventListener("mouseup",function(){
-            rotateL = false;
-        })
-        rotateleft.addEventListener("blur",function(){
-            rotateL = false;
-        })
-
-        rotateright.addEventListener("mousedown",function(){
-            rotateR = true;
-        })
-        rotateright.addEventListener("mouseup",function(){
-            rotateR = false;
-        })
-        rotateright.addEventListener("blur",function(){
-            rotateR = false;
-        })
-
-        homebtn.addEventListener("click",function(){
-            viewer.camera.position.set(0.9959545915187218,0.08376295032060595,0.032530290290184755);
-        })
-
-        autorotate.addEventListener("click",function(){
-            viewer.OrbitControls.autoRotate = !viewer.OrbitControls.autoRotate;
-            if(viewer.OrbitControls.autoRotate){
-            document.querySelector("#pbtn9 img").src = "../img/rotateautoOFF.png";
-            }
-            else{
-            document.querySelector("#pbtn9 img").src = "../img/rotateautoON.png";
-            }
-        })
-
-        var soundON = false;
-        sound.addEventListener("click",function(){
-            soundON = !soundON;
-            console.log(soundON)
-            if(soundON){
-            document.querySelector("#pbtn8 img").src = "../img/soundoff.png";
-            }
-            else{
-            document.querySelector("#pbtn8 img").src = "../img/soundon.png";
-            }
-        })
-
-        var fullscn = false;
-        fullscreen.addEventListener("click",function(){
-            fullscn = !fullscn;
-            if(fullscn){
-            document.querySelector("#pbtn10 img").src = "../img/zoomin.png";
-            }
-            else{
-            document.querySelector("#pbtn10 img").src = "../img/zoomout.png";
-            }
-            var elem = document.documentElement;
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                } else if (elem.webkitRequestFullscreen) { /* Safari */
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { /* IE11 */
-                    elem.msRequestFullscreen();
-                }
-                
-
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) { /* Safari */
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { /* IE11 */
-                    document.msExitFullscreen();
-                }
-        })
-
-        vr.addEventListener("click",function(){
-            if(viewer.mode == 1){
-                viewer.mode = 2;
-                }
-                else if(viewer.mode == 2){
-                viewer.mode = 1;
-            }
-        })
-
-        var hidemenu = false;
-        hidden.addEventListener("click",function(){
-            hidemenu = !hidemenu;
-            if(hidemenu){
-                document.querySelector("#panoramamenu").style.display="none";
-                document.querySelectorAll(".panomenu").forEach(function(ele)
-                {
-                    ele.style.display = "none"
-                })
-                document.querySelector(".iconmenu").style.background="none";
-                this.style.display = "inline-block";
-            }
-            else{
-                document.querySelector("#panoramamenu").style.display="block";
-                document.querySelectorAll(".panomenu").forEach(function(ele){
-                ele.style.display = "inline-block"
-            })
-                document.querySelector(".iconmenu").style.background="rgba(24, 24, 24, 0.589)";
-                this.style.display = "inline-block";
-            }
-
-
-        })
-
-        viewer.addUpdateCallback(function(){
-            if(zoomN == true && viewer.camera.fov != 30){
-                viewer.camera.fov -= 1;
-            }
-            if(zoomO == true && viewer.camera.fov != 120){
-                viewer.camera.fov += 1;
-            }
-            if(rotateU == true){
-                viewer.getControl().rotateUp(-0.01);
-            }
-            if(rotateD == true){
-                viewer.getControl().rotateUp(+0.01);
-            }
-            if(rotateL == true){
-                viewer.getControl().rotateLeft(-0.01);
-            }
-            if(rotateR == true){
-                viewer.getControl().rotateLeft(+0.01);
-            }
-            viewer.camera.updateProjectionMatrix();
-
-        })
-
-        document.getElementById("classlvls").style.display = "none"
-        lvlbtn.addEventListener("click",function(){
-            if(document.getElementById("classlvls").style.display == "none"){
-                document.getElementById("classlvls").style.display = "block"
-            }
-            else{
-                document.getElementById("classlvls").style.display = "none"
-
-            }
-        })
-
-        function panocheck(c){
-            pano.forEach(function(ele, index){
-                ele.classList.remove("checked")
-            })
-            pano[c-1].classList.add("checked")
-        }
-        pano.forEach(function(ele, index){
-            ele.addEventListener("click",function(){
-                changeview(index+1)
-            })
-            
-        })
-
-// #videoto3D
-
-
-// let controls;
-
-// function Element( id, x, y, z, rx ,ry ,rz) {
-
-//     const div = document.createElement( 'div' );
-//     div.style.width = '1850px';
-//     div.style.height = '680px';
-//     div.style.background = "transparent";
-//     div.style.cursor = "pointer";
-//     div.style.pointerEvents = "none";
-//     const iframe = document.getElementById("video")
-//     // iframe.addEventListener("mouseover",function(){
-//     //     alert("HEYYYYYYYYYYY");
-//     // })
-//     iframe.style.width = '2000px';
-//     iframe.style.height = '650px';
-//     // iframe.style.border = '0px';
-//     iframe.style.cursor = "pointer";
-//     // iframe.src ='https://streamable.com/b01yv1';
-//     iframe.style.pointerEvents = "auto";
-//     div.appendChild( iframe );
-
-//     const object = new THREE.CSS3DObject( div );
-//     object.position.set( x, y, z );
-//     object.rotation.set( rx, ry, rz)
-    
-//     return object;
-
-// };
-
-// init();
-
-// function init() {
-
-//     const container = document.querySelector( '#panocontainer' );
-//     camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 5000 );
-//     camera.position.set( 0, 0, 750 );
-
-//     scene = new THREE.Scene();
-//     // renderer =viewer.getRenderer)
-
-//     renderer = new THREE.CSS3DRenderer();
-//     renderer.setSize( window.innerWidth, window.innerHeight );
-//     renderer.domElement.style.position = 'absolute';
-//     renderer.domElement.style.top = 0;
-//     renderer.domElement.style.backgroundColor = 'transparent';
-//     renderer.domElement.style.zIndex = 0;
-//     // renderer.domElement.style.pointerEvents = "none"
-//     console.log(renderer)
-//     container.appendChild( renderer.domElement );
-
-
-//     var video = new Element( 'SJOz3qjfQXU', -3080, -600, -4900, 0, -100.5 ,0 ) ;
-
-//     console.log("helloworld")
-//     console.log(video)
-//     scene.add( video );
-    
-//     viewer.add(panorama)
-
-// }
-
-
-
-
-// animate()
-
-// function animate() {
-// requestAnimationFrame( animate );
-// renderer.render( scene, viewer.getCamera() );
-
-// viewer.camera.updateProjectionMatrix();
-
-
-
-// }
-
-
-
-
-
-
-// window.addEventListener( 'resize', onWindowResize, false );
-
-// function onWindowResize() {
-
-// camera.aspect = window.innerWidth / window.innerHeight;
-// camera.updateProjectionMatrix();
-// renderer.setSize( window.innerWidth, window.innerHeight );
-
-// }
-
-
+    }
 
     </script>
-
 </body>
 </html>
 

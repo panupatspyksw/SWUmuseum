@@ -10,7 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
+<style>
+    #linkmode iframe{
+        width: 100%;
+    }
+</style>
     <title>Document</title>
 </head>
 <body>
@@ -59,7 +63,7 @@
         <div class="link">
             <a class="th" href="index.html">หน้าแรก</a>
             <a class="th" href="history.html">ประวัติความเป็นมา</a>
-            <a class="th" href="antiquitie.html">โบราณวัตถุ</a>
+            <a class="th" href="antiquitie.html">ภาพจำลองรูปแบบสามมิติ</a>
             <a class="th" href="data.html">คลังข้อมูล</a>
             <a class="th" href="museum.html">พิพิธภัณฑ์เสมือนจริง</a>
             </div>
@@ -69,39 +73,51 @@
         <h1 style="font-family: 'Roboto', sans-serif; color:rgb(29, 29, 29); font-size: 150px; position: absolute; bottom:0%; line-height: 105px; ">ANTIQUITIES</h1>
     </div>
     <div class="post_model" style=" background-color:rgb(29, 29, 29)">
-        <div class="card" style="background: url(../img/model1.png); background-position: 50% 50%; background-size: cover;">
+        <div class="card" tabindex="0" onclick="showdetail(infodict[0])" style="background: url(../img/clocktower.png); background-position: 50% 50%; background-size: cover;">
         <div>
             <div class="overlay"></div>
             <div class="title th">
-                พระพุทธรูปเทวทูต
+                หอนาฬิกา
             </div>
             <div class="des">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                อาคารวิจัยและการศึกษาต่อเนื่องสมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี
             </div>
         </div>
         </div>
-        <div class="card" style="background: url(../img/model2.png); background-position: 50% 50%; background-size: cover;">
+        <div class="card" tabindex="0" onclick="showdetail(infodict[1])"  style="background: url(../img/gitjagarn.png); background-position: 50% 50%; background-size: cover;">
             <div>
             <div class="overlay"></div>
             <div class="title th">
-                พระพุทธรูปเทวทูต
+                อาคาร 9
             </div>
             <div class="des">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                อาคารสำนักงานอธิการบดี สร้างเสร็จในปี 2515 เป็นอาคารสูงถึง 5 ชั้น สร้างขึ้นเพื่อรองรับการขยายตัวของสำนักทดสอบทางการศึกษาและจิตวิทยา 
             </div>
         </div>
         </div>
-        <div class="card" style="background: url(../img/model3.png); background-position: 50% 50%; background-size: cover;">
+            <br>
+        <div class="card" tabindex="0" onclick="showdetail(infodict[2])"  style="background: url(../img/museum.png); background-position: 50% 50%; background-size: cover;">
         <div>
             <div class="overlay"></div>
             <div class="title th">
-                พระพุทธรูปเทวทูต
+                อาคาร 3 
             </div>
             <div class="des">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                เดิมเป็นอาคารเรียนหลังแรก สร้างขึ้นตั้งแต่ครั้งโรงเรียนฝึกหัดครูขั้นสูง เปิดใช้งานในปี 2495 เป็นอาคารคอนกรีตเสริมเหล็ก 2 ชิ้น
             </div>
         </div>
         </div>
+        <div class="card" tabindex="0" onclick="showdetail(infodict[3])"  style="background: url(../img/jadee\ -\ Copy.png); background-position: 50% 50%; background-size: cover;">
+            <div>
+                <div class="overlay"></div>
+                <div class="title th">
+                    ลานเทาแดง
+                </div>
+                <div class="des">
+                    อาคารสำนักงานอธิการบดี สร้างเสร็จในปี 2515 เป็นอาคารสูงถึง 5 ชั้น สร้างขึ้นเพื่อรองรับการขยายตัวของสำนักทดสอบทางการศึกษาและจิตวิทยา 
+                </div>
+            </div>
+            </div>
     </div>
 
 <div class="overlaybody" style="transition: .3s all;background: black; height: 100vh; width: 100%; position: fixed; top: 0%; pointer-events: none; opacity: 0;">
@@ -114,33 +130,52 @@
 
              <div class="row">
                  <div class="content-box">
-                    <div class="titlee th">
+                    <div id="titlemodel" class="titlee th">
                         พระพุทธรูปเทวทูต
                     </div>
-                    <div class="des "style="font-family: 'Roboto', sans-serif;">
+                    <div id="infomodel" class="des"style="font-family: 'Kanit', sans-serif;">
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                         <br>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
                         
                     </div>
                  </div>
-                 <div class="image">
-                    <img src="../img/model3.png" alt="">
-                 </div>
+                 <!-- <div class="image">
+                    <img src="../img/model3.png" height="300px" alt="">
+                 </div> -->
              </div>
              <div class="AR">
                  <div class="sketchfab-embed-wrapper">
-                    <iframe title="A 3D model" width="100%" height="500px" src="https://sketchfab.com/models/124b205a64dd4b49b2984feb752f9abc/embed?autostart=0&amp;ui_controls=1&amp;ui_infos=1&amp;ui_inspector=1&amp;ui_stop=1&amp;ui_watermark=1&amp;ui_watermark_link=1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-                    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
-                        <a href="https://sketchfab.com/3d-models/cemetery-angel-scottino-124b205a64dd4b49b2984feb752f9abc?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Cemetery Angel - Scottino</a>
-                        by <a href="https://sketchfab.com/misterdevious?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">misterdevious</a>
-                        on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
-                    </p>
+<iframe id="linkmodel" allowfullscreen webkitallowfullscreen width="100%" height="480" frameborder="0" seamless src="https://p3d.in/e/Tqwsx+spin+load" style="background: black;"></iframe>                        
+
                 </div>
              </div>
         </div>
     </div>
 <script>
+    var infodict = [{title:"อาคารวิจัยและการศึกษาต่อเนื่อง<br>สมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี",content:"สร้างเสร็จและเปิดใช้งานเมื่อปี 2539 ในวโรกาสที่สมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี เจริญพระชนมายุครบ 3 ขวบ ใช้เป็นสถานที่จัดประชุมทางวิชาการระดับชาติและนานาชาติ",clip:"https://p3d.in/e/0xs3K+spin+load"},
+    {title:"อาคาร 9",content:"อาคารสำนักงานอธิการบดี สร้างเสร็จในปี 2515 เป็นอาคารสูงถึง 5 ชั้น สร้างขึ้นเพื่อรองรับการขยายตัวของสำนักทดสอบทางการศึกษาและจิตวิทยา เมื่อยกฐานะเป็นมหาวิทยาลัย ได้ใช้เป็นสำนักงานอธิการบดี และบัณฑิตวิทยาลัย",clip:'https://p3d.in/e/Zn8W7+spin+load'},
+    {title:"อาคาร 3",content:"เดิมเป็นอาคารเรียนหลังแรก สร้างขึ้นตั้งแต่ครั้งโรงเรียนฝึกหัดครูขั้นสูง เปิดใช้งานในปี 2495 เป็นอาคารคอนกรีตเสริมเหล็ก 2 ชิ้น ส่วนตรงกลางมีอยู่ 3 ชั้น กว้าง 10 เมตร ยาว 96 เมตร ปัจจุบันตัวอาคารเดิมยังคงอยู่ ใช้เป็นที่ทำงานของผู้บริหารสถถาบันนวัตกรรมและศิลปะ หอเกียรติยศ และจดหมายเหตุ",clip:"https://p3d.in/e/yVlvA+spin+load"},
+    {title:"อาคาร 9",content:"อาคารสำนักงานอธิการบดี สร้างเสร็จในปี 2515 เป็นอาคารสูงถึง 5 ชั้น สร้างขึ้นเพื่อรองรับการขยายตัวของสำนักทดสอบทางการศึกษาและจิตวิทยา เมื่อยกฐานะเป็นมหาวิทยาลัย ได้ใช้เป็นสำนักงานอธิการบดี และบัณฑิตวิทยาลัย",clip:"https://p3d.in/e/Tqwsx+spin+load"}
+
+    ]
+    
+    function showdetail(key){
+        var titlemodel = document.getElementById("titlemodel")
+        var infomodel = document.getElementById("infomodel")
+        var linkmodel = document.getElementById("linkmodel")
+        titlemodel.innerHTML = key.title
+        infomodel.innerHTML = key.content
+        linkmodel.src = key.clip
+    }
+
+    // showdetail(infodict[0])
+
+    console.log(infodict)
+
+
+
+
     var closebtn = document.getElementById("closebtn");
     var contentpost = document.querySelector(".content_post");
     var modelpost = document.querySelectorAll(".card");

@@ -10,6 +10,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        .contentbox{
+            width: 1000px;
+            margin: 0 auto;
+            
+        }
+        .row{
+            width: 100%;
+            padding:1% 0%;
+            display: flex;
+            margin: 0 auto;
+            overflow: hidden;
+            height: 300px auto;
+
+        }
+        .wideinfo{
+            color: white;
+            display: block;
+            margin: 10px 0;
+        }
+        .wideimg{
+            width: 50%;
+        }
+        .row div{
+            display: block;
+        }
+        .row img{
+            width: 100%;
+            height: 100%;
+        }
+        .col img{
+            width: 100%;
+        }
+        .col{
+            display: block;
+            vertical-align: middle;
+            width: 50%;
+        }
+        .content{
+            vertical-align: middle;
+            background: rgb(255, 255, 255);
+            color: black;
+        }
+        p{
+            margin: 0;
+            padding: 0%;
+        }
+
+        .col.content{
+            padding: 4%;
+        }
+        .container-fluid{
+            background: rgb(29, 29, 29);
+            width: 100%;
+            padding: 5% 0;
+            font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+        }
+    </style>
 
     <title>Document</title>
 </head>
@@ -59,7 +118,7 @@
         <div class="link">
         <a class="th" href="index.html">หน้าแรก</a>
         <a class="th" href="history.html">ประวัติความเป็นมา</a>
-        <a class="th" href="antiquitie.html">โบราณวัตถุ</a>
+        <a class="th" href="antiquitie.html">ภาพจำลองรูปแบบสามมิติ</a>
         <a class="th" href="data.html">คลังข้อมูล</a>
         <a class="th" href="museum.html">พิพิธภัณฑ์เสมือนจริง</a>
         </div>
@@ -68,17 +127,82 @@
         <iframe class="museumview" style="position: absolute; opacity: 0.9; border:none; outline: none;" src="3droom.html" ></iframe>
         <h1 style="font-family: 'Roboto', sans-serif; color:rgb(29, 29, 29); font-size: 150px; position: absolute; bottom:0%; line-height: 105px;">HISTORY</h1>
     </div>
-    <div class="history" style="background: rgb(29, 29, 29);">
-        <div class="title th">ประวัติความเป็นมา</div>
-        <div class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-        <br>
-        <div class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-        <br>
-        <div class="img-2"style="justify-content: space-between; display : flex">
-            <img src="../img/PB120416.jpg" alt="" style="width: 48%;height: 400px;"><img src="../img/PB120411.jpg" alt="" style="width: 48%;height: 400px;">
+    <div class="container-fluid">
+        <div class="contentbox">
+            <div class=" wideinfo">
+                <h2>ข้อมูลพิพิธภัณฑ์</h2>
+                <h3>
+                    หอเกียรติยศและหอจดหมายเหตุมหาวิทยาลัยศรีนครินทรวิโรฒ
+                </h3>
+                <p>ช่วงพุทธศักราช 2540 - 2542 มหาวิทยาลัยศรีนครินทรวิโรฒมีโครงการอนุรักษ์อาคาร 3
+                    อาคารเรียนหลังแรกซึ่งเป็นอาคารประวัติศาสตร์ของมหาวิทยาลัย ให้เป็นอาคารอนุรักษ์มีการจัดตั้ง
+                    หอเกียรติยศและหอจดหมายเหตุ มหาวิทยาลัยศรีนครินทรวิโรฒที่อาคารอนุรักษ์หลังนี้ หอเกียรติยศ (Hall of Fame) คือ สถานที่บอกเล่าถึงเกียรติยศ ศักดิ์ศรีของผู้มีคุณูปการที่สัมพันธ์กับแก่นสาระของมหาวิทยาลัย หอจดหมายเหตุ คือ แหล่งรวบรวมเอกสาร ภาพถ่าย สื่อโสตทัศนวัสดุต่างๆ ซึ่งเป็น
+                    หลักฐานที่มีคุณค่าที่บอกเล่าประวัติ บันทึกเหตุการณ์ กิจกรรมของมหาวิทยาลัย หอเกียรติยศและ
+                    หอจดหมายเหตุฯ จึงมีบทบาทสำคัญในการเป็นแหล่งเรียนรู้ทางประวัติศาสตร์ของมหาวิทยาลัยสืบไป
+                </p>
+            </div>
+            <div class="row ">
+                <img class="wideimg" src="http://upic.me/i/su/img_8595-222.jpg" alt="">
+                <img class="wideimg" style="height:200px!important; width: 50%!important;"  src="http://upic.me/i/tj/19073150_10154511766977539_2064525048_o.jpg" alt="">
+            </div>
+
+            <div class="wideinfo">
+                <p>หอเกียรติยศและหอจดหมายเหตุจัดแสดงทำเนียบผู้บริหารทั้งผู้อำนวยการโรงเรียนฝึกหัดครูชั้นสูง อธิการวิทยาลัยวิชาการศึกษา และอธิการบดีมหาวิทยาลัยศรีนครินทรวิโรฒรูปปั้นหลวงสวัสดิสารศาสตรพุทธิศาสตราจารย์ ดร.สาโรช บัวศรี ศาสตราจารย์ ดร.สุดใจ เหล่าสุนทร และมีส่วนจัดแสดงต่างๆ ดังต่อไปนี้</p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="http://upic.me/i/qw/19074825_10154511769552539_235828435_o.jpg" alt="">
+                </div>
+                <div class="col content">
+                    <h3>มศว 360 องศา</h3>
+                    <p>จัดแสดงข้อมูลทั่วไปของมหาวิทยาลัยศรีนครินทรวิโรฒ เช่น ความหมายของชื่อ ตรา สี คณะ หน่วยงาน และภาพแสดงลำดับเหตุการณ์สำคัญของมหาวิทยาลัยศรีนครินทรวิโรฒ เพื่อให้เห็นทุกมุมมอง 360 องศาของมหาวิทยาลัย</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="http://upic.me/i/7h/img_8529-1000px.jpg" alt="">
+                </div>
+                <div class="col content">
+                    <h3>พระมหากษัตริย์กับมศว</h3>
+                    <p>นับเป็นพระมหากรุณาธิคุณแก่มหาวิทยาลัยที่สถาบันพระมหากษัตริย์เป็นผู้ให้กำเนิดโรงเรียนฝึกหัดครูชั้นสูงจนพัฒนามาเป็นมหาวิทยาลัยศรีนครินทรวิโรฒในปัจจุบันและนับเป็นสิริมงคลแก่มหาวิทยาลัยที่สมเด็จพระเทพรัตนราชสุดาฯ สยามบรมราชกุมารี เสด็จพระราชดำเนินมาทรงพระอักษรและทรงสำเร็จการศึกษาดุษฎีบัณฑิต สาขาพัฒนศึกษาศาสตร์ และยังเสด็จฯพระราชทานปริญญาบัตรแก่บัณฑิตของมหาวิทยาลัยอย่างต่อเนื่องมาจนปัจจุบัน</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="http://upic.me/i/l0/img_8547-222.jpg" alt="">
+                </div>
+                <div class="col content">
+                    <h3>ภูมิทัศน์ของ มศว</h3>
+                    <p>การจัดแสดงผังจำลองของมหาวิทยาลัย ภาพถ่ายเก่าของอาคาร สถานที่ในอดีต ก่อนมีการรื้อทิ้งเพื่อสร้างอาคารหลังใหม่ รองรับการเติบโตเป็นมหาวิทยาลัย</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="http://upic.me/i/mn/jf182.jpg" alt="">
+                </div>
+                <div class="col content">
+                    <h3>แบบจำลองพิธีพระราชทานปริญญาบัตร ปฐมวาระ</h3>
+                    <p>นับเป็นพระมหากรุณาธิคุณแก่บัณฑิตมหาวิทยาลัยศรีนครินทรวิโรฒ ที่พระบาทสมเด็จพระเจ้าอยู่หัวเสด็จพระราชดำเนินในพิธีพระราชทานปริญญาบัตรเป็นปฐมวาระ เมื่อพุทธศักราช 2502 ณ ลานกลางอาคาร 4 เนื่องจากเป็นครั้งแรกและเป็นครั้งเดียวของมหาวิทยาลัยที่พิธีพระราชทานปริญญาบัตรเกิดขึ้นกลางแจ้งพระองค์เสด็จฯ พระราชดำเนินมาพระราชทานปริญญาบัตรอย่างต่อเนื่อง จนกระทั่งพุทธศักราช 2525 สมเด็จพระเทพรัตนราชสุดา ฯ สยามบรมราชกุมารี เสด็จพระราชดำเนินแทนพระองค์มาพระราชทานปริญญาบัตรจนถึงปัจจุบัน</p>
+                </div>
+            </div>
+            <div class="wideinfo">
+                <div>
+                    <h3>ศิษย์เก่าผู้สร้างแรงบันดาลใจ</h3>
+                    <p>
+                        ศิษย์เก่าของมหาวิทยาลัยที่ประสบความสำเร็จ ได้รับรางวัลในระดับชาติ ดำรงตำแหน่งสำคัญขององค์กรต่างๆ เพื่อเป็นแบบอย่างที่ดีแก่นิสิตในปัจจุบัน ได้ถ่ายทอดเรื่องราวความประทับใจ ประสบการณ์ที่มีคุณค่า โดยมุ่งหวังในการสร้างแรงบันดาลใจแก่นิสิตที่จะออกไปประกอบสัมมาชีพให้ประสบความสำเร็จและเป็นคนดีรับใช้สังคม
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="http://upic.me/i/jg/img_8606-mini22.jpg" alt="">
+                </div>
+                <div class="col content">
+                    <h3>ห้องสืบค้นเอกสารจดหมายเหตุ</h3>
+                    <p>หอจดหมายเหตุ เป็นแหล่งอธิบายอดีต อธิบายแก่นสาระของการเป็นโรงเรียนฝึกหัดครูชั้นสูง การเป็นวิทยาลัยวิชาการศึกษา และการเป็นมหาวิทยาลัยศรีนครินทรวิโรฒ จดหมายเหตุ (Archives) เป็นเรื่องของหลักฐานและเอกสารที่บอกเล่าการเดินทางและแก่นสาระของมหาวิทยาลัยศรีนครินทรวิโรฒ พร้อมเจ้าหน้าที่คอยแนะนำและให้ข้อมูลในการสืบค้นเอกสารจดหมายเหตุ</p>
+                </div>
+            </div>
         </div>
-        <br>
-        <div class="paragraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
     </div>
 </body>
 </html>
