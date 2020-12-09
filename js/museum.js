@@ -63,7 +63,7 @@ var sound2 = new Howl({
 src: ['../sound/2.m4a']
 });
 var sound3 = new Howl({
-src: ['../sound/3.m4a']
+src: ['../sound/3.mp3']
 });
 
 infospot.position.set( 4868.14, -850.78, 802.44 );
