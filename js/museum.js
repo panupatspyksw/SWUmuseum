@@ -360,9 +360,14 @@ fullscreen.addEventListener("click",function(){
 vr.addEventListener("click",function(){
     if(viewer.mode == 1){
         viewer.mode = 2;
+        var iframe = document.getElementById("video")
+        iframe.style.display = "none"
         }
         else if(viewer.mode == 2){
+        var iframe = document.getElementById("video")
         viewer.mode = 1;
+        iframe.style.display = "block"
+
     }
 })
 
