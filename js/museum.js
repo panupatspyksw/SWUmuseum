@@ -305,18 +305,26 @@ autorotate.addEventListener("click",function(){
     }
 })
 
+function muteorunmute(x){
+    sound1.mute(x)
+    sound2.mute(x)
+    sound3.mute(x)
+}
+
+
+
 var soundON = false;
 sound.addEventListener("click",function(){
     soundON = !soundON;
     console.log(soundON)
     if(soundON){
     document.querySelector("#pbtn8 img").src = "../img/soundoff.png";
-    offallsound();
+    muteorunmute(true)
     var browser = document.getElementById('videoplayer');
     browser.src = browser.src;
     }
     else{
-
+        muteorunmute(false)
     document.querySelector("#pbtn8 img").src = "../img/soundon.png";
     }
 })
