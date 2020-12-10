@@ -45,7 +45,7 @@ GPSicons[index-1].classList.add("checked");
 // 4917.05, -745.58, -490.88
 
 var panocontainer = document.getElementById("panocontainer")
-const viewer = new PANOLENS.Viewer({container: panocontainer, output: 'console',controlBar: false});
+const viewer = new PANOLENS.Viewer({container: panocontainer, output: 'console',controlBar: false, autoHideInfospot: false});
 var panorama = new PANOLENS.ImagePanorama( '../img/ROOMMOOM2.jpg' );
 var panorama2 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM1.jpg' );
 var panorama3 = new PANOLENS.ImagePanorama( '../img/ROOMMOOM5.jpg' );
