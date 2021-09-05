@@ -105,6 +105,8 @@ infospot2.addEventListener("click",function(){
 
 function changeview(moom){
     offallsound();
+    stopvideo()
+
     if(moom == 1){
     renderer.domElement.style.zIndex =0;
     viewer.setPanorama(panorama)
